@@ -63,7 +63,7 @@ const Signup = () => {
 
       toast({
         title: "Account created successfully!",
-        description: "Welcome to GODIRECT. You can now log in.",
+        description: "Welcome to Campus Comfort. You can now log in.",
       });
 
       // Redirect to login
@@ -83,7 +83,7 @@ const Signup = () => {
   return (
     <>
       <Helmet>
-        <title>Sign Up | GODIRECT Realty</title>
+        <title>Sign Up | Campus Comfort</title>
       </Helmet>
 
       <div className="min-h-screen flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
@@ -106,7 +106,7 @@ const Signup = () => {
             </div>
 
             <h1 className="text-4xl font-bold mb-4 text-center">
-              Welcome to <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">GODIRECT</span>
+              Welcome to <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Campus Comfort</span>
             </h1>
 
             <p className="text-xl text-white/90 text-center max-w-md">
@@ -138,7 +138,7 @@ const Signup = () => {
                     <div className="absolute inset-0 rounded-xl bg-primary/20 animate-ping" />
                   </div>
                   <span className="text-xl sm:text-2xl font-heading font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                    GODIRECT
+                    Campus Comfort
                   </span>
                 </Link>
               </div>
@@ -148,7 +148,7 @@ const Signup = () => {
                   Create an account
                 </CardTitle>
                 <CardDescription className="text-sm sm:text-base text-muted-foreground px-2">
-                  Enter your information to create your GODIRECT account
+                  Enter your information to create your Campus Comfort account
                 </CardDescription>
               </div>
             </CardHeader>

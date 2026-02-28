@@ -6,9 +6,9 @@ export default function AdminLogin() {
   return (
     <>
       <Helmet>
-        <title>Admin Login | GODIRECT Realty</title>
+        <title>Admin Login | Campus Comfort</title>
       </Helmet>
-      
+
       <AuthForm
         mode="login"
         userType="admin"

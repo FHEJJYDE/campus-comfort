@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/use-toast";
-import { 
+import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -34,14 +34,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { formatPriceWithCommas } from "@/utils/data";
-import { 
-  Info, 
-  Building, 
-  CreditCard, 
-  Coins, 
-  Wallet, 
-  Landmark, 
-  Copy, 
+import {
+  Info,
+  Building,
+  CreditCard,
+  Coins,
+  Wallet,
+  Landmark,
+  Copy,
   Calendar,
   FileText,
   Clock,
@@ -76,10 +76,10 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
   const [showPaymentDetails, setShowPaymentDetails] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [purchaseStatus, setPurchaseStatus] = useState<'pending' | 'sent' | 'approved' | 'scheduled' | 'complete'>('pending');
-  
+
   const commissionRate = 0.05; // 5% commission
   const commissionAmount = propertyPrice * commissionRate;
-  
+
   const form = useForm<z.infer<typeof purchaseFormSchema>>({
     resolver: zodResolver(purchaseFormSchema),
     defaultValues: {
@@ -101,18 +101,18 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
       setCurrentStep(2);
       return;
     }
-    
+
     if (currentStep === 2) {
       setCurrentStep(3);
       setShowPaymentDetails(true);
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       console.log("Purchase submitted:", {
         property: {
           id: propertyId,
@@ -127,14 +127,14 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
         customer: values,
         purchaseStatus: 'pending'
       });
-      
+
       toast({
         title: "Purchase Request Submitted",
         description: "Your request has been submitted to the admin for review. You'll be notified when it's approved.",
       });
-      
+
       setPurchaseStatus('sent');
-      
+
     } catch (error) {
       toast({
         variant: "destructive",
@@ -179,7 +179,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               </div>
               <div className="flex justify-between">
                 <span className="font-medium">Account Name:</span>
-                <span>GODIRECT PROPERTIES LTD</span>
+                <span>CAMPUS COMFORT PROPERTIES LTD</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-medium">Amount:</span>
@@ -251,7 +251,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
                 </div>
               </div>
               <div className="mt-4">
-                <p>After sending the equivalent of ₦{formatPriceWithCommas(propertyPrice)}, please email the transaction hash to payments@godirect.com with reference: PROP-{propertyId}</p>
+                <p>After sending the equivalent of ₦{formatPriceWithCommas(propertyPrice)}, please email the transaction hash to payments@campuscomfort.com with reference: PROP-{propertyId}</p>
               </div>
             </div>
           </div>
@@ -271,7 +271,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
                   </div>
                   <div className="flex justify-between">
                     <span>Account Name:</span>
-                    <span>GODIRECT PROPERTIES</span>
+                    <span>CAMPUS COMFORT PROPERTIES</span>
                   </div>
                 </div>
                 <div>
@@ -282,7 +282,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
                   </div>
                   <div className="flex justify-between">
                     <span>Account Name:</span>
-                    <span>GODIRECT PROPERTIES</span>
+                    <span>CAMPUS COMFORT PROPERTIES</span>
                   </div>
                 </div>
               </div>
@@ -307,7 +307,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               </div>
               <div className="flex justify-between">
                 <span className="font-medium">Account Name:</span>
-                <span>GODIRECT PROPERTIES LTD</span>
+                <span>CAMPUS COMFORT PROPERTIES LTD</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-medium">Amount:</span>
@@ -319,7 +319,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               </div>
             </div>
             <div className="text-sm mt-4">
-              <p>After making your deposit, please email the deposit slip to deposits@godirect.com or upload it through your dashboard.</p>
+              <p>After making your deposit, please email the deposit slip to deposits@campuscomfort.com or upload it through your dashboard.</p>
             </div>
           </div>
         );
@@ -337,18 +337,18 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
           </div>
           <span className="text-xs font-medium ml-1">Interest</span>
         </div>
-        
+
         <div className={`w-8 h-0.5 ${currentStep >= 2 ? "bg-primary" : "bg-muted-foreground"}`}></div>
-        
+
         <div className={`flex items-center ${currentStep >= 2 ? "text-primary" : "text-muted-foreground"}`}>
           <div className={`rounded-full h-8 w-8 flex items-center justify-center border-2 ${currentStep >= 2 ? "border-primary bg-primary/10" : "border-muted-foreground"}`}>
             <Calendar size={16} />
           </div>
           <span className="text-xs font-medium ml-1">Schedule</span>
         </div>
-        
+
         <div className={`w-8 h-0.5 ${currentStep >= 3 ? "bg-primary" : "bg-muted-foreground"}`}></div>
-        
+
         <div className={`flex items-center ${currentStep >= 3 ? "text-primary" : "text-muted-foreground"}`}>
           <div className={`rounded-full h-8 w-8 flex items-center justify-center border-2 ${currentStep >= 3 ? "border-primary bg-primary/10" : "border-muted-foreground"}`}>
             <Wallet size={16} />
@@ -357,7 +357,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
         </div>
 
         <div className={`w-8 h-0.5 ${purchaseStatus === 'sent' ? "bg-primary" : "bg-muted-foreground"}`}></div>
-        
+
         <div className={`flex items-center ${purchaseStatus === 'sent' ? "text-primary" : "text-muted-foreground"}`}>
           <div className={`rounded-full h-8 w-8 flex items-center justify-center border-2 ${purchaseStatus === 'sent' ? "border-primary bg-primary/10" : "border-muted-foreground"}`}>
             <Check size={16} />
@@ -426,7 +426,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="email"
@@ -440,7 +440,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="phone"
@@ -462,7 +462,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               <FormItem>
                 <FormLabel>Why are you interested in this property?</FormLabel>
                 <FormControl>
-                  <Textarea 
+                  <Textarea
                     placeholder="Tell us why you're interested in this property and any questions you have..."
                     className="resize-none"
                     {...field}
@@ -482,7 +482,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
           <div className="bg-muted/30 p-4 rounded-md mb-4">
             <h3 className="font-medium mb-2">Schedule a Property Viewing</h3>
             <p className="text-sm mb-4">Before completing your purchase, we recommend scheduling a viewing of the property.</p>
-            
+
             <FormField
               control={form.control}
               name="preferredViewingDate"
@@ -496,7 +496,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
                 </FormItem>
               )}
             />
-            
+
             <FormField
               control={form.control}
               name="preferredViewingTime"
@@ -520,7 +520,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               )}
             />
           </div>
-          
+
           <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-md text-sm">
             <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium mb-1">
               <Info className="h-4 w-4 mr-1" />
@@ -621,7 +621,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               </div>
             </div>
           </div>
-          
+
           <FormField
             control={form.control}
             name="agreeTerms"
@@ -650,7 +650,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
   const renderStepButtons = () => {
     if (purchaseStatus === 'sent') {
       return (
-        <Button 
+        <Button
           variant="outline"
           onClick={handleDialogClose}
           className="w-full"
@@ -662,8 +662,8 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
 
     if (currentStep === 1) {
       return (
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full"
         >
           Continue to Scheduling
@@ -674,8 +674,8 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
     if (currentStep === 2) {
       return (
         <div className="flex flex-col w-full gap-2">
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             className="w-full"
           >
             Continue to Payment
@@ -694,16 +694,16 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
 
     return (
       <div className="flex flex-col w-full gap-2">
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           disabled={isSubmitting}
           className="w-full"
         >
           {isSubmitting ? "Processing..." : "Submit Purchase Request"}
         </Button>
-        <Button 
+        <Button
           type="button"
-          variant="outline" 
+          variant="outline"
           onClick={() => setCurrentStep(2)}
           className="w-full"
         >
@@ -723,27 +723,27 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
       <DialogContent className="sm:max-w-[550px]">
         <DialogHeader>
           <DialogTitle>
-            {purchaseStatus === 'sent' 
-              ? "Purchase Request Submitted" 
-              : currentStep === 1 
-                ? "Express Interest in Property" 
-                : currentStep === 2 
-                  ? "Schedule Property Viewing" 
+            {purchaseStatus === 'sent'
+              ? "Purchase Request Submitted"
+              : currentStep === 1
+                ? "Express Interest in Property"
+                : currentStep === 2
+                  ? "Schedule Property Viewing"
                   : "Payment Details"}
           </DialogTitle>
           <DialogDescription>
-            {purchaseStatus === 'sent' 
-              ? `Thank you for your interest in ${propertyTitle}.` 
-              : currentStep === 1 
-                ? `Tell us about your interest in ${propertyTitle} priced at ₦${formatPriceWithCommas(propertyPrice)}.` 
-                : currentStep === 2 
+            {purchaseStatus === 'sent'
+              ? `Thank you for your interest in ${propertyTitle}.`
+              : currentStep === 1
+                ? `Tell us about your interest in ${propertyTitle} priced at ₦${formatPriceWithCommas(propertyPrice)}.`
+                : currentStep === 2
                   ? `Schedule a viewing for ${propertyTitle} before completing your purchase.`
                   : `Please complete your payment for ${propertyTitle} using your selected payment method.`}
           </DialogDescription>
         </DialogHeader>
-        
+
         {renderStepIndicator()}
-        
+
         {currentStep === 1 && purchaseStatus !== 'sent' && (
           <div className="bg-muted/30 p-4 rounded-lg mb-4 text-sm">
             <div className="flex items-center gap-2 mb-2">
@@ -759,11 +759,11 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
             </ol>
           </div>
         )}
-        
+
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 pt-2">
             {renderStepContent()}
-            
+
             <DialogFooter className="pt-4">
               {renderStepButtons()}
             </DialogFooter>

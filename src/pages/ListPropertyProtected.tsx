@@ -12,8 +12,8 @@ const ListPropertyProtected = () => {
     return (
         <>
             <Helmet>
-                <title>List Your Property | GODIRECT</title>
-                <meta name="description" content="List your property with GODIRECT and reach thousands of potential buyers and renters in Nigeria." />
+                <title>List Your Property | Campus Comfort</title>
+                <meta name="description" content="List your student housing with Campus Comfort and reach thousands of students looking for accommodation." />
             </Helmet>
 
             {/* Header Section */}

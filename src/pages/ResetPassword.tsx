@@ -58,12 +58,12 @@ const ResetPassword = () => {
       // Simulate API call with the token
       console.log("Resetting password with token:", token, "New password:", values.password);
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       toast({
         title: "Password reset successful",
         description: "Your password has been reset. You can now log in with your new password.",
       });
-      
+
       // Redirect to login
       navigate("/login");
     } catch (error) {
@@ -116,9 +116,9 @@ const ResetPassword = () => {
   return (
     <>
       <Helmet>
-        <title>Reset Password | GODIRECT Realty</title>
+        <title>Reset Password | Campus Comfort</title>
       </Helmet>
-      
+
       <div className="container flex items-center justify-center min-h-screen py-10">
         <Card className="w-full max-w-md">
           <CardHeader className="space-y-1">
@@ -127,7 +127,7 @@ const ResetPassword = () => {
                 <span className="text-white dark:text-realty-900 font-bold">GD</span>
               </div>
               <span className="text-xl font-heading font-semibold text-realty-900 dark:text-white">
-                GODIRECT
+                Campus Comfort
               </span>
             </Link>
             <CardTitle className="text-2xl">Create new password</CardTitle>

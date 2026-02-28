@@ -232,8 +232,8 @@ const PropertyListings = () => {
   return (
     <>
       <Helmet>
-        <title>Browse Properties | Godirect Realty</title>
-        <meta name="description" content="Browse our extensive collection of properties for sale. Find houses, apartments, condos, and more." />
+        <title>Browse Housing | Campus Comfort</title>
+        <meta name="description" content="Browse our extensive collection of student housing near universities. Find apartments, dorms, shared rooms, and more." />
       </Helmet>
 
       <div className="bg-realty-50 dark:bg-realty-800/30 py-12">
@@ -254,8 +254,8 @@ const PropertyListings = () => {
               <Button
                 variant={selectedPropertyCategory === "houses" ? "default" : "outline"}
                 className={`py-6 h-auto flex flex-col items-center justify-center ${selectedPropertyCategory === "houses"
-                    ? "bg-realty-800 text-white hover:bg-realty-700"
-                    : "hover:bg-realty-50 dark:hover:bg-realty-700"
+                  ? "bg-realty-800 text-white hover:bg-realty-700"
+                  : "hover:bg-realty-50 dark:hover:bg-realty-700"
                   }`}
                 onClick={() => setSelectedPropertyCategory(selectedPropertyCategory === "houses" ? null : "houses")}
               >
@@ -268,8 +268,8 @@ const PropertyListings = () => {
               <Button
                 variant={selectedPropertyCategory === "land" ? "default" : "outline"}
                 className={`py-6 h-auto flex flex-col items-center justify-center ${selectedPropertyCategory === "land"
-                    ? "bg-realty-800 text-white hover:bg-realty-700"
-                    : "hover:bg-realty-50 dark:hover:bg-realty-700"
+                  ? "bg-realty-800 text-white hover:bg-realty-700"
+                  : "hover:bg-realty-50 dark:hover:bg-realty-700"
                   }`}
                 onClick={() => setSelectedPropertyCategory(selectedPropertyCategory === "land" ? null : "land")}
               >

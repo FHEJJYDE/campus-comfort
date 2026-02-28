@@ -33,8 +33,8 @@ const ListProperty = () => {
     return (
         <>
             <Helmet>
-                <title>List Your Property | GODIRECT</title>
-                <meta name="description" content="List your property with GODIRECT and reach thousands of potential buyers and renters in Nigeria." />
+                <title>List Your Property | Campus Comfort</title>
+                <meta name="description" content="List your student housing with Campus Comfort and reach thousands of students looking for accommodation." />
             </Helmet>
 
             {/* Hero Section */}
@@ -229,7 +229,7 @@ const ListProperty = () => {
                                     </div>
                                 </div>
                                 <p className="text-realty-200 mb-4">
-                                    "As a repeat user, I've sold 4 properties through GODIRECT. The platform saved me over ₦400,000 in agent fees alone!"
+                                    "As a repeat user, I've rented 4 properties through Campus Comfort. The platform saved me so much time finding the perfect student housing!"
                                 </p>
                                 <div className="flex items-center text-realty-gold">
                                     {[...Array(5)].map((_, i) => (
