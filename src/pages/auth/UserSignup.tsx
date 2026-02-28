@@ -6,14 +6,14 @@ export default function UserSignup() {
   return (
     <>
       <Helmet>
-        <title>User Sign Up | GODIRECT Realty</title>
+        <title>User Sign Up | Campus Comfort</title>
       </Helmet>
-      
+
       <AuthForm
         mode="signup"
         userType="user"
         title="Create a user account"
-        description="Enter your information to create your GODIRECT user account"
+        description="Enter your information to create your Campus Comfort student account"
         redirectPath="/user-login"
       />
     </>

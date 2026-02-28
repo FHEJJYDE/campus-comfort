@@ -1,5 +1,5 @@
 -- =====================================================
--- MERGED GODIRECT REALTY DATABASE SETUP
+-- CAMPUS COMFORT DATABASE SETUP
 -- =====================================================
 -- This file contains everything needed to set up the database in one go:
 -- 1. Complete table structure with all tables
@@ -1275,9 +1275,9 @@ ON CONFLICT (code) DO UPDATE SET
 
 -- Insert system settings
 INSERT INTO system_settings (key, value, description) VALUES
-    ('site_name', '"GODIRECT Realty"', 'Name of the website'),
-    ('site_description', '"Your trusted partner in real estate"', 'Website description'),
-    ('contact_email', '"info@godirectrealty.com"', 'Main contact email'),
+    ('site_name', '"Campus Comfort"', 'Name of the website'),
+    ('site_description', '"Your trusted partner in campus living"', 'Website description'),
+    ('contact_email', '"info@campuscomfort.com"', 'Main contact email'),
     ('contact_phone', '"+1 (555) 123-4567"', 'Main contact phone'),
     ('office_address', '"123 Real Estate Ave, City, State 12345"', 'Office address'),
     ('public_max_properties_per_page', '12', 'Number of properties to show per page'),
@@ -1350,7 +1350,7 @@ ON CONFLICT (key) DO UPDATE SET
 DO $$
 BEGIN
     RAISE NOTICE '=====================================================';
-    RAISE NOTICE '✅ GODIRECT REALTY DATABASE SETUP COMPLETE!';
+    RAISE NOTICE '✅ CAMPUS COMFORT DATABASE SETUP COMPLETE!';
     RAISE NOTICE '=====================================================';
     RAISE NOTICE 'Created:';
     RAISE NOTICE '• All tables with proper relationships';

@@ -20,7 +20,7 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Properties", path: "/properties" },
+    { name: "Housing", path: "/properties" },
     { name: "List Your Property", path: "/list-property" },
   ];
 
@@ -38,10 +38,10 @@ const Header = () => {
           {/* Enhanced Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="h-9 w-9 bg-gradient-to-br from-realty-800 to-realty-900 dark:from-realty-gold dark:to-realty-gold/80 rounded-md flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
-              <span className="text-white dark:text-realty-900 font-bold text-lg">GD</span>
+              <span className="text-white dark:text-realty-900 font-bold text-lg">CC</span>
             </div>
             <span className="text-xl font-heading font-bold text-realty-900 dark:text-white tracking-tight transition-colors duration-300 group-hover:text-realty-700 dark:group-hover:text-realty-gold">
-              GODIRECT
+              Campus Comfort
             </span>
           </Link>
 

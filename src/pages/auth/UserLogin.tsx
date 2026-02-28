@@ -6,9 +6,9 @@ export default function UserLogin() {
   return (
     <>
       <Helmet>
-        <title>User Login | GODIRECT Realty</title>
+        <title>User Login | Campus Comfort</title>
       </Helmet>
-      
+
       <AuthForm
         mode="login"
         userType="user"

@@ -1,8 +1,8 @@
-# GODIRECT - Real Estate Platform
+# CAMPUS COMFORT - Student Housing Platform
 
-**Find Your Dream Home in Nigeria** 🏡
+**Find Your Perfect Campus Accommodation** 🏠
 
-GODIRECT is a comprehensive real estate platform that connects buyers, sellers, and agents across Nigeria. Our platform specializes in premium properties in major Nigerian cities including Enugu, Calabar, and Lagos.
+Campus Comfort is a comprehensive student housing platform that connects students, property owners, and housing managers across university towns. Our platform specializes in student-friendly accommodations near major universities and colleges.
 
 ## ✨ Features
 

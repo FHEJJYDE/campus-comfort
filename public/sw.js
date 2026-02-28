@@ -1,5 +1,5 @@
 // Service Worker for caching and performance optimization
-const CACHE_NAME = 'godirect-realty-v2';
+const CACHE_NAME = 'campus-comfort-v1';
 const urlsToCache = [
     '/',
     '/index.html',
@@ -71,7 +71,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('push', (event) => {
     if (event.data) {
         const data = event.data.json();
-        const title = data.title || 'GODIRECT Notification';
+        const title = data.title || 'Campus Comfort Notification';
         const options = {
             body: data.body || 'You have a new notification',
             icon: '/pwa-icons/android-chrome-192x192.png',

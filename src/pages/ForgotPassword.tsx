@@ -41,9 +41,9 @@ const ForgotPassword = () => {
       // Simulate API call
       console.log("Reset password for:", values.email);
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       setIsSubmitted(true);
-      
+
       toast({
         title: "Reset link sent",
         description: "If an account exists with that email, you'll receive a password reset link.",
@@ -63,9 +63,9 @@ const ForgotPassword = () => {
   return (
     <>
       <Helmet>
-        <title>Forgot Password | GODIRECT Realty</title>
+        <title>Forgot Password | Campus Comfort</title>
       </Helmet>
-      
+
       <div className="container flex items-center justify-center min-h-screen py-10">
         <Card className="w-full max-w-md">
           <CardHeader className="space-y-1">
@@ -74,7 +74,7 @@ const ForgotPassword = () => {
                 <span className="text-white dark:text-realty-900 font-bold">GD</span>
               </div>
               <span className="text-xl font-heading font-semibold text-realty-900 dark:text-white">
-                GODIRECT
+                Campus Comfort
               </span>
             </Link>
             <CardTitle className="text-2xl">Reset your password</CardTitle>

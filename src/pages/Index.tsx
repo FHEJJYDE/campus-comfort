@@ -103,23 +103,23 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>GODIRECT | Find Your Dream Home in Nigeria</title>
-        <meta name="description" content="Find your dream home with GODIRECT. Browse thousands of premium properties for sale and rent in Enugu and Calabar, Nigeria." />
-        <meta name="keywords" content="real estate, property, Nigeria, Enugu, Calabar, buy home, rent apartment, luxury properties" />
+        <title>Campus Comfort | Your Campus Living Solution</title>
+        <meta name="description" content="Find your perfect campus accommodation with Campus Comfort. Browse thousands of student-friendly properties near universities and colleges." />
+        <meta name="keywords" content="student housing, campus accommodation, university housing, college rentals, student apartments, campus living" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://godirect.ng/" />
-        <meta property="og:title" content="GODIRECT | Find Your Dream Home in Nigeria" />
-        <meta property="og:description" content="Find your dream home with GODIRECT. Browse thousands of premium properties for sale and rent in Enugu and Calabar, Nigeria." />
-        <meta property="og:image" content="https://godirect.ng/og-image.jpg" />
+        <meta property="og:url" content="https://campuscomfort.com/" />
+        <meta property="og:title" content="Campus Comfort | Your Campus Living Solution" />
+        <meta property="og:description" content="Find your perfect campus accommodation with Campus Comfort. Browse thousands of student-friendly properties near universities and colleges." />
+        <meta property="og:image" content="https://campuscomfort.com/og-image.jpg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://godirect.ng/" />
-        <meta property="twitter:title" content="GODIRECT | Find Your Dream Home in Nigeria" />
-        <meta property="twitter:description" content="Find your dream home with GODIRECT. Browse thousands of premium properties for sale and rent in Enugu and Calabar, Nigeria." />
-        <meta property="twitter:image" content="https://godirect.ng/og-image.jpg" />
+        <meta property="twitter:url" content="https://campuscomfort.com/" />
+        <meta property="twitter:title" content="Campus Comfort | Your Campus Living Solution" />
+        <meta property="twitter:description" content="Find your perfect campus accommodation with Campus Comfort. Browse thousands of student-friendly properties near universities and colleges." />
+        <meta property="twitter:image" content="https://campuscomfort.com/og-image.jpg" />
       </Helmet>
 
       {/* Main hero section with search */}
@@ -237,7 +237,7 @@ const Index = () => {
               </span>
             </h2>
             <p className="text-realty-300 max-w-2xl mx-auto">
-              Hear what our satisfied clients have to say about their experience with GODIRECT.
+              Hear what our satisfied students have to say about their experience with Campus Comfort.
             </p>
           </div>
           <Testimonials />
@@ -255,7 +255,7 @@ const Index = () => {
               Ready to Find Your Dream Home in Nigeria?
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied clients who have found their perfect property with GODIRECT. Our expert team is ready to guide you every step of the way.
+              Join thousands of satisfied students who have found their perfect campus accommodation with Campus Comfort. Our expert team is ready to guide you every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-realty-gold hover:bg-realty-gold/90 text-realty-900 font-medium">
