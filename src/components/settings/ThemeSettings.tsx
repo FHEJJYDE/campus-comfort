@@ -7,12 +7,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Separator } from '@/components/ui/separator';
 import { useTheme } from '@/contexts/ThemeContext';
 import { toast } from 'sonner';
-import { 
-  Palette, 
-  Sun, 
-  Moon, 
-  Monitor, 
-  Check, 
+import {
+  Palette,
+  Sun,
+  Moon,
+  Monitor,
+  Check,
   Save,
   Type,
   Zap,
@@ -24,24 +24,21 @@ interface ThemeSettingsProps {
 }
 
 export default function ThemeSettings({ showAdvanced = true }: ThemeSettingsProps) {
-  const { settings, updateSetting, saveSettings } = useTheme();
+  const { settings, updateSetting, saveSettings, availableColors, availableFonts } = useTheme();
   const [saving, setSaving] = useState(false);
 
-  // Color options with more choices than admin
-  const colorOptions = [
-    { value: 'blue', label: 'Blue', color: 'hsl(221, 83%, 53%)' },
-    { value: 'green', label: 'Green', color: 'hsl(142, 76%, 36%)' },
-    { value: 'purple', label: 'Purple', color: 'hsl(262, 83%, 58%)' },
-    { value: 'orange', label: 'Orange', color: 'hsl(25, 95%, 53%)' },
-    { value: 'red', label: 'Red', color: 'hsl(0, 84%, 60%)' },
-    { value: 'pink', label: 'Pink', color: 'hsl(336, 75%, 60%)' },
-    { value: 'indigo', label: 'Indigo', color: 'hsl(239, 84%, 67%)' },
-    { value: 'teal', label: 'Teal', color: 'hsl(173, 80%, 40%)' },
-    { value: 'cyan', label: 'Cyan', color: 'hsl(188, 86%, 53%)' },
-    { value: 'emerald', label: 'Emerald', color: 'hsl(160, 84%, 39%)' },
-    { value: 'lime', label: 'Lime', color: 'hsl(84, 81%, 44%)' },
-    { value: 'amber', label: 'Amber', color: 'hsl(43, 96%, 56%)' },
-  ];
+  // Convert color options to array for rendering
+  const colorOptionsArray = Object.entries(availableColors).map(([key, value]) => ({
+    value: key,
+    label: value.name,
+    color: value.preview
+  }));
+
+  // Convert font options to array for rendering
+  const fontOptionsArray = Object.entries(availableFonts).map(([key, value]) => ({
+    value: key,
+    label: value.name
+  }));
 
   const handleSave = async () => {
     try {
@@ -106,14 +103,14 @@ export default function ThemeSettings({ showAdvanced = true }: ThemeSettingsProp
           <div className="space-y-2">
             <Label>Primary Color</Label>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-              {colorOptions.map((color) => (
+              {colorOptionsArray.map((color) => (
                 <Button
                   key={color.value}
                   variant={settings.primaryColor === color.value ? 'default' : 'outline'}
                   className="flex items-center gap-2 h-auto p-2 sm:p-3"
                   onClick={() => updateSetting('primaryColor', color.value)}
                 >
-                  <div 
+                  <div
                     className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-border flex-shrink-0"
                     style={{ backgroundColor: color.color }}
                   />
@@ -122,6 +119,55 @@ export default function ThemeSettings({ showAdvanced = true }: ThemeSettingsProp
                 </Button>
               ))}
             </div>
+          </div>
+
+          <Separator />
+
+          {/* Accent Color Selection */}
+          <div className="space-y-2">
+            <Label>Accent Color</Label>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+              {colorOptionsArray.map((color) => (
+                <Button
+                  key={color.value}
+                  variant={settings.accentColor === color.value ? 'default' : 'outline'}
+                  className="flex items-center gap-2 h-auto p-2 sm:p-3"
+                  onClick={() => updateSetting('accentColor', color.value)}
+                >
+                  <div
+                    className="w-3 h-3 sm:w-4 sm:h-4 rounded-full border border-border flex-shrink-0"
+                    style={{ backgroundColor: color.color }}
+                  />
+                  <span className="text-xs sm:text-sm flex-1 text-left">{color.label}</span>
+                  {settings.accentColor === color.value && <Check className="h-3 w-3 sm:h-4 sm:w-4 ml-auto flex-shrink-0" />}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          <Separator />
+
+          {/* Font Family Selection */}
+          <div className="space-y-2">
+            <Label htmlFor="font-family" className="flex items-center gap-2">
+              <Type className="h-4 w-4" />
+              Font Family
+            </Label>
+            <Select
+              value={settings.fontFamily}
+              onValueChange={(value) => updateSetting('fontFamily', value)}
+            >
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {fontOptionsArray.map((font) => (
+                  <SelectItem key={font.value} value={font.value}>
+                    {font.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </div>
 
@@ -135,15 +181,15 @@ export default function ThemeSettings({ showAdvanced = true }: ThemeSettingsProp
                 <Layout className="h-4 w-4" />
                 Display Settings
               </h3>
-              
+
               <div className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="font-size" className="flex items-center gap-2">
                     <Type className="h-4 w-4" />
                     Font Size
                   </Label>
-                  <Select 
-                    value={settings.fontSize} 
+                  <Select
+                    value={settings.fontSize}
                     onValueChange={(value: 'small' | 'medium' | 'large') => updateSetting('fontSize', value)}
                   >
                     <SelectTrigger>
@@ -165,8 +211,8 @@ export default function ThemeSettings({ showAdvanced = true }: ThemeSettingsProp
                     </Label>
                     <p className="text-sm text-muted-foreground">Reduce spacing and padding for more content</p>
                   </div>
-                  <Switch 
-                    checked={settings.compactMode} 
+                  <Switch
+                    checked={settings.compactMode}
                     onCheckedChange={(checked) => updateSetting('compactMode', checked)}
                   />
                 </div>
@@ -179,8 +225,8 @@ export default function ThemeSettings({ showAdvanced = true }: ThemeSettingsProp
                     </Label>
                     <p className="text-sm text-muted-foreground">Enable smooth transitions and effects</p>
                   </div>
-                  <Switch 
-                    checked={settings.animationsEnabled} 
+                  <Switch
+                    checked={settings.animationsEnabled}
                     onCheckedChange={(checked) => updateSetting('animationsEnabled', checked)}
                   />
                 </div>
@@ -193,7 +239,7 @@ export default function ThemeSettings({ showAdvanced = true }: ThemeSettingsProp
 
         {/* Save Button */}
         <div className="flex justify-end">
-          <Button 
+          <Button
             onClick={handleSave}
             disabled={saving}
             className="min-w-[120px]"

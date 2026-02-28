@@ -261,4 +261,37 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Compact mode - reduce spacing */
+  .compact-mode .space-y-6>*+* {
+    margin-top: 1rem !important;
+  }
+
+  .compact-mode .space-y-4>*+* {
+    margin-top: 0.75rem !important;
+  }
+
+  .compact-mode .p-6 {
+    padding: 1rem !important;
+  }
+
+  .compact-mode .p-4 {
+    padding: 0.75rem !important;
+  }
+
+  .compact-mode .py-16 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .compact-mode .py-24 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Disable animations */
+  .no-animations * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
