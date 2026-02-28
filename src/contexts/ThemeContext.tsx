@@ -24,8 +24,8 @@ interface ThemeContextType {
 
 const defaultSettings: ThemeSettings = {
   theme: 'system',
-  primaryColor: 'blue',
-  accentColor: 'orange',
+  primaryColor: 'slate',
+  accentColor: 'stone',
   fontFamily: 'inter',
   fontSize: 'medium',
   compactMode: false,
