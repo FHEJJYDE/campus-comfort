@@ -225,6 +225,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (selectedColor) {
       root.style.setProperty('--primary', selectedColor.value);
       root.style.setProperty('--ring', selectedColor.value);
+
+      // Also update primary-foreground for better contrast
+      const isDark = root.classList.contains('dark');
+      root.style.setProperty('--primary-foreground', isDark ? '210 40% 98%' : '210 40% 98%');
+
+      console.log(`✅ Primary color applied: ${selectedColor.name} (${selectedColor.value})`);
     }
   };
 
@@ -234,6 +240,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     if (selectedColor) {
       root.style.setProperty('--accent', selectedColor.value);
+
+      // Also update accent-foreground for better contrast
+      const isDark = root.classList.contains('dark');
+      root.style.setProperty('--accent-foreground', isDark ? '210 40% 98%' : '210 40% 10%');
+
+      console.log(`✅ Accent color applied: ${selectedColor.name} (${selectedColor.value})`);
     }
   };
 
@@ -257,6 +269,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       // Apply font family
       root.style.setProperty('--font-family', selectedFont.value);
       document.body.style.fontFamily = selectedFont.value;
+
+      console.log(`✅ Font family applied: ${selectedFont.name}`);
     }
   };
 

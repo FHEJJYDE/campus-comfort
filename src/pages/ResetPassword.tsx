@@ -101,7 +101,7 @@ const ResetPassword = () => {
             <div className="text-center w-full">
               <Link
                 to="/login"
-                className="inline-flex items-center text-sm text-realty-600 hover:text-realty-800"
+                className="inline-flex items-center text-sm text-primary hover:text-primary/80"
               >
                 <ArrowLeft className="mr-1 h-4 w-4" />
                 Back to login
@@ -123,10 +123,10 @@ const ResetPassword = () => {
         <Card className="w-full max-w-md">
           <CardHeader className="space-y-1">
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="h-8 w-8 bg-realty-900 dark:bg-realty-gold rounded-md flex items-center justify-center">
-                <span className="text-white dark:text-realty-900 font-bold">GD</span>
+              <div className="h-8 w-8 bg-primary rounded-md flex items-center justify-center">
+                <span className="text-primary-foreground font-bold">GD</span>
               </div>
-              <span className="text-xl font-heading font-semibold text-realty-900 dark:text-white">
+              <span className="text-xl font-heading font-semibold text-foreground">
                 Campus Comfort
               </span>
             </Link>
@@ -174,7 +174,7 @@ const ResetPassword = () => {
             <div className="text-center w-full">
               <Link
                 to="/login"
-                className="inline-flex items-center text-sm text-realty-600 hover:text-realty-800"
+                className="inline-flex items-center text-sm text-primary hover:text-primary/80"
               >
                 <ArrowLeft className="mr-1 h-4 w-4" />
                 Back to login

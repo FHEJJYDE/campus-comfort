@@ -236,46 +236,46 @@ const PropertyListings = () => {
         <meta name="description" content="Browse our extensive collection of student housing near universities. Find apartments, dorms, shared rooms, and more." />
       </Helmet>
 
-      <div className="bg-realty-50 dark:bg-realty-800/30 py-12">
+      <div className="bg-muted/20 py-12">
         <div className="container-custom">
-          <h1 className="text-3xl md:text-4xl font-heading font-semibold text-realty-900 dark:text-white mb-2">
+          <h1 className="text-3xl md:text-4xl font-heading font-semibold text-foreground mb-2">
             Browse Properties
           </h1>
-          <p className="text-realty-600 dark:text-realty-400 mb-8">
+          <p className="text-muted-foreground mb-8">
             Find your next home from our carefully curated property listings.
           </p>
 
           {/* Property Category Selection */}
-          <div className="mb-8 bg-white dark:bg-realty-800 rounded-lg border border-gray-200 dark:border-realty-700 p-6 shadow-sm">
-            <h2 className="text-xl font-heading font-semibold text-realty-900 dark:text-white mb-4">
+          <div className="mb-8 bg-card rounded-lg border border-border p-6 shadow-sm">
+            <h2 className="text-xl font-heading font-semibold text-foreground mb-4">
               What are you looking for?
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <Button
                 variant={selectedPropertyCategory === "houses" ? "default" : "outline"}
                 className={`py-6 h-auto flex flex-col items-center justify-center ${selectedPropertyCategory === "houses"
-                  ? "bg-realty-800 text-white hover:bg-realty-700"
-                  : "hover:bg-realty-50 dark:hover:bg-realty-700"
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "hover:bg-muted"
                   }`}
                 onClick={() => setSelectedPropertyCategory(selectedPropertyCategory === "houses" ? null : "houses")}
               >
                 <Home className="h-8 w-8 mb-2" />
                 <span className="text-lg font-medium">Houses & Apartments</span>
-                <span className="text-sm text-realty-600 dark:text-realty-400 mt-1">
+                <span className="text-sm text-muted-foreground mt-1">
                   Residential properties
                 </span>
               </Button>
               <Button
                 variant={selectedPropertyCategory === "land" ? "default" : "outline"}
                 className={`py-6 h-auto flex flex-col items-center justify-center ${selectedPropertyCategory === "land"
-                  ? "bg-realty-800 text-white hover:bg-realty-700"
-                  : "hover:bg-realty-50 dark:hover:bg-realty-700"
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "hover:bg-muted"
                   }`}
                 onClick={() => setSelectedPropertyCategory(selectedPropertyCategory === "land" ? null : "land")}
               >
                 <Map className="h-8 w-8 mb-2" />
                 <span className="text-lg font-medium">Land</span>
-                <span className="text-sm text-realty-600 dark:text-realty-400 mt-1">
+                <span className="text-sm text-muted-foreground mt-1">
                   Plots and acreage
                 </span>
               </Button>
@@ -284,7 +284,7 @@ const PropertyListings = () => {
               <div className="mt-4 text-center">
                 <Button
                   variant="ghost"
-                  className="text-realty-600 dark:text-realty-400 hover:text-realty-900 dark:hover:text-white"
+                  className="text-muted-foreground hover:text-foreground"
                   onClick={() => setSelectedPropertyCategory(null)}
                 >
                   Clear selection
@@ -299,13 +299,13 @@ const PropertyListings = () => {
           />
 
           <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
-            <p className="text-realty-600 dark:text-realty-400 mb-4 sm:mb-0">
-              Showing <span className="font-medium text-realty-900 dark:text-white">{sortedProperties.length}</span> properties
+            <p className="text-muted-foreground mb-4 sm:mb-0">
+              Showing <span className="font-medium text-foreground">{sortedProperties.length}</span> properties
             </p>
 
             <div className="flex space-x-3">
               <div className="flex items-center">
-                <ArrowUpDown className="mr-2 h-4 w-4 text-realty-500" />
+                <ArrowUpDown className="mr-2 h-4 w-4 text-muted-foreground" />
                 <Select value={sortBy} onValueChange={setSortBy}>
                   <SelectTrigger className="w-[160px]">
                     <SelectValue placeholder="Sort by" />
@@ -321,7 +321,7 @@ const PropertyListings = () => {
               <div className="flex rounded-md overflow-hidden">
                 <Button
                   variant={view === "grid" ? "default" : "outline"}
-                  className={`px-3 ${view === "grid" ? "bg-realty-800 text-white" : ""}`}
+                  className={`px-3 ${view === "grid" ? "bg-primary text-primary-foreground" : ""}`}
                   onClick={() => setView("grid")}
                 >
                   <LayoutGrid className="h-4 w-4" />
@@ -329,7 +329,7 @@ const PropertyListings = () => {
                 </Button>
                 <Button
                   variant={view === "list" ? "default" : "outline"}
-                  className={`px-3 ${view === "list" ? "bg-realty-800 text-white" : ""}`}
+                  className={`px-3 ${view === "list" ? "bg-primary text-primary-foreground" : ""}`}
                   onClick={() => setView("list")}
                 >
                   <LayoutList className="h-4 w-4" />
@@ -355,7 +355,7 @@ const PropertyListings = () => {
                       <Button
                         key={page}
                         variant={page === currentPage ? "default" : "outline"}
-                        className={page === currentPage ? "bg-realty-800" : ""}
+                        className={page === currentPage ? "bg-primary text-primary-foreground" : ""}
                         size="sm"
                         onClick={() => handlePageChange(page)}
                       >
@@ -367,11 +367,11 @@ const PropertyListings = () => {
               )}
             </>
           ) : (
-            <div className="text-center py-12 bg-white dark:bg-realty-800 rounded-lg shadow">
-              <h3 className="text-xl font-heading font-semibold text-realty-900 dark:text-white mb-2">
+            <div className="text-center py-12 bg-card rounded-lg shadow">
+              <h3 className="text-xl font-heading font-semibold text-foreground mb-2">
                 No properties found
               </h3>
-              <p className="text-realty-600 dark:text-realty-400">
+              <p className="text-muted-foreground">
                 Try adjusting your filters to find the perfect property.
               </p>
             </div>

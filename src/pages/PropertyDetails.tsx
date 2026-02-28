@@ -141,19 +141,19 @@ const PropertyDetails = () => {
         )}
       </Helmet>
 
-      <div className="bg-realty-50 dark:bg-realty-800/30 py-8">
+      <div className="bg-muted/20 py-8">
         <div className="container-custom">
           {/* Breadcrumbs */}
           <div className="flex text-sm mb-4">
-            <Link to="/" className="text-realty-600 dark:text-realty-400 hover:text-realty-900 dark:hover:text-white">
+            <Link to="/" className="text-muted-foreground hover:text-foreground">
               Home
             </Link>
-            <span className="mx-2 text-realty-400">/</span>
-            <Link to="/properties" className="text-realty-600 dark:text-realty-400 hover:text-realty-900 dark:hover:text-white">
+            <span className="mx-2 text-muted-foreground">/</span>
+            <Link to="/properties" className="text-muted-foreground hover:text-foreground">
               Properties
             </Link>
-            <span className="mx-2 text-realty-400">/</span>
-            <span className="text-realty-900 dark:text-white font-medium">
+            <span className="mx-2 text-muted-foreground">/</span>
+            <span className="text-foreground font-medium">
               {property.title}
             </span>
           </div>
@@ -161,10 +161,10 @@ const PropertyDetails = () => {
           {/* Property header */}
           <div className="flex flex-col md:flex-row justify-between mb-8">
             <div>
-              <h1 className="text-2xl md:text-3xl font-heading font-semibold text-realty-900 dark:text-white mb-2">
+              <h1 className="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-2">
                 {property.title}
               </h1>
-              <div className="flex items-center text-realty-600 dark:text-realty-400">
+              <div className="flex items-center text-muted-foreground">
                 <MapPin className="h-4 w-4 mr-1" />
                 <span>
                   {property.street}, {property.city}, {property.state} {property.zip_code}
@@ -173,10 +173,10 @@ const PropertyDetails = () => {
             </div>
 
             <div className="mt-4 md:mt-0 flex flex-col items-end">
-              <div className="text-3xl font-heading font-semibold text-realty-800 dark:text-realty-gold mb-1">
+              <div className="text-3xl font-heading font-semibold text-primary mb-1">
                 {formatPrice(property.price, { fromCurrency: property.currency || 'NGN' })}
               </div>
-              <div className="text-realty-600 dark:text-realty-400 text-sm">
+              <div className="text-muted-foreground text-sm">
                 {property.status}
               </div>
             </div>
@@ -217,58 +217,58 @@ const PropertyDetails = () => {
             {/* Main content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Property details */}
-              <div className="bg-white dark:bg-realty-800 rounded-xl shadow p-6">
+              <div className="bg-card rounded-xl shadow p-6">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                  <div className="text-center p-4 bg-realty-50 dark:bg-realty-700/30 rounded-lg">
-                    <Bed className="h-6 w-6 mx-auto text-realty-800 dark:text-realty-300 mb-2" />
-                    <div className="text-lg font-medium text-realty-900 dark:text-white">
+                  <div className="text-center p-4 bg-muted/30 rounded-lg">
+                    <Bed className="h-6 w-6 mx-auto text-accent mb-2" />
+                    <div className="text-lg font-medium text-foreground">
                       {property.bedrooms || 0}
                     </div>
-                    <div className="text-sm text-realty-600 dark:text-realty-400">
+                    <div className="text-sm text-muted-foreground">
                       Bedrooms
                     </div>
                   </div>
 
-                  <div className="text-center p-4 bg-realty-50 dark:bg-realty-700/30 rounded-lg">
-                    <Bath className="h-6 w-6 mx-auto text-realty-800 dark:text-realty-300 mb-2" />
-                    <div className="text-lg font-medium text-realty-900 dark:text-white">
+                  <div className="text-center p-4 bg-muted/30 rounded-lg">
+                    <Bath className="h-6 w-6 mx-auto text-accent mb-2" />
+                    <div className="text-lg font-medium text-foreground">
                       {property.bathrooms || 0}
                     </div>
-                    <div className="text-sm text-realty-600 dark:text-realty-400">
+                    <div className="text-sm text-muted-foreground">
                       Bathrooms
                     </div>
                   </div>
 
-                  <div className="text-center p-4 bg-realty-50 dark:bg-realty-700/30 rounded-lg">
-                    <Move className="h-6 w-6 mx-auto text-realty-800 dark:text-realty-300 mb-2" />
-                    <div className="text-lg font-medium text-realty-900 dark:text-white">
+                  <div className="text-center p-4 bg-muted/30 rounded-lg">
+                    <Move className="h-6 w-6 mx-auto text-accent mb-2" />
+                    <div className="text-lg font-medium text-foreground">
                       {property.square_feet || 0}
                     </div>
-                    <div className="text-sm text-realty-600 dark:text-realty-400">
+                    <div className="text-sm text-muted-foreground">
                       Sq Ft
                     </div>
                   </div>
 
-                  <div className="text-center p-4 bg-realty-50 dark:bg-realty-700/30 rounded-lg">
-                    <Home className="h-6 w-6 mx-auto text-realty-800 dark:text-realty-300 mb-2" />
-                    <div className="text-lg font-medium text-realty-900 dark:text-white">
+                  <div className="text-center p-4 bg-muted/30 rounded-lg">
+                    <Home className="h-6 w-6 mx-auto text-accent mb-2" />
+                    <div className="text-lg font-medium text-foreground">
                       {property.property_type}
                     </div>
-                    <div className="text-sm text-realty-600 dark:text-realty-400">
+                    <div className="text-sm text-muted-foreground">
                       Property Type
                     </div>
                   </div>
                 </div>
 
-                <h2 className="text-xl font-heading font-semibold mb-4 text-realty-900 dark:text-white">
+                <h2 className="text-xl font-heading font-semibold mb-4 text-foreground">
                   Description
                 </h2>
-                <p className="text-realty-600 dark:text-realty-300 whitespace-pre-line">
+                <p className="text-muted-foreground whitespace-pre-line">
                   {property.description || 'No description available'}
                 </p>
 
-                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-realty-700">
-                  <h2 className="text-xl font-heading font-semibold mb-4 text-realty-900 dark:text-white">
+                <div className="mt-6 pt-6 border-t border-border">
+                  <h2 className="text-xl font-heading font-semibold mb-4 text-foreground">
                     Property Details
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

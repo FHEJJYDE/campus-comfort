@@ -297,11 +297,11 @@ const Signup = () => {
                         <div className="space-y-1 leading-none">
                           <FormLabel className="text-sm">
                             I agree to the{" "}
-                            <Link to="/terms" className="text-realty-600 hover:text-realty-800 font-medium">
+                            <Link to="/terms" className="text-primary hover:text-primary/80 font-medium">
                               Terms and Conditions
                             </Link>{" "}
                             and{" "}
-                            <Link to="/privacy" className="text-realty-600 hover:text-realty-800 font-medium">
+                            <Link to="/privacy" className="text-primary hover:text-primary/80 font-medium">
                               Privacy Policy
                             </Link>
                           </FormLabel>
@@ -332,7 +332,7 @@ const Signup = () => {
                   Already have an account?{" "}
                   <Link
                     to="/login"
-                    className="text-realty-600 hover:text-realty-800 font-medium"
+                    className="text-primary hover:text-primary/80 font-medium"
                   >
                     Log in
                   </Link>

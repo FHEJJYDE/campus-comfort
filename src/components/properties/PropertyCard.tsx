@@ -74,12 +74,12 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   return (
     <Link
       to={`/properties/${property.id}`}
-      className="group block property-card-shadow rounded-xl overflow-hidden bg-white dark:bg-realty-800 transition-all duration-300"
+      className="group block property-card-shadow rounded-xl overflow-hidden bg-card transition-all duration-300"
     >
       {/* Image container */}
       <div className="relative w-full h-64 overflow-hidden">
         {!imageLoaded && (
-          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse" />
+          <div className="absolute inset-0 bg-muted animate-pulse" />
         )}
         <img
           src={property.images[0] || "/placeholder.svg"}
@@ -105,7 +105,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
 
             {/* Property status badge */}
             <div className="absolute bottom-4 left-4">
-              <span className="px-3 py-1 text-xs font-medium rounded-full bg-white dark:bg-realty-900 text-realty-800 dark:text-white">
+              <span className="px-3 py-1 text-xs font-medium rounded-full bg-card text-foreground">
                 {property.status}
               </span>
             </div>
@@ -113,7 +113,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             {/* Featured badge */}
             {property.is_featured && (
               <div className="absolute top-4 left-4">
-                <span className="px-2 py-1 text-xs font-medium rounded-full bg-realty-gold text-realty-900">
+                <span className="px-2 py-1 text-xs font-medium rounded-full bg-accent text-accent-foreground">
                   Featured
                 </span>
               </div>
@@ -125,10 +125,10 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
       {/* Content */}
       <div className="p-5">
         <div className="mb-2">
-          <h3 className="text-xl font-heading font-semibold text-realty-900 dark:text-white truncate">
+          <h3 className="text-xl font-heading font-semibold text-foreground truncate">
             {property.title}
           </h3>
-          <div className="flex items-center text-realty-500 dark:text-realty-400 text-sm mt-1">
+          <div className="flex items-center text-muted-foreground text-sm mt-1">
             <MapPin className="h-4 w-4 flex-shrink-0 mr-1" />
             <span className="truncate">
               {property.city}, {property.state}
@@ -136,12 +136,12 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
           </div>
         </div>
 
-        <div className="text-2xl font-heading font-semibold text-realty-800 dark:text-realty-gold mb-4">
+        <div className="text-2xl font-heading font-semibold text-primary mb-4">
           {formatPrice(property.price, { fromCurrency: property.currency || 'NGN' })}
         </div>
 
         {/* Property details */}
-        <div className="flex space-x-4 mb-4 text-sm text-realty-600 dark:text-realty-300">
+        <div className="flex space-x-4 mb-4 text-sm text-muted-foreground">
           <div className="flex items-center">
             <Bed className="h-4 w-4 mr-1" />
             <span>{property.bedrooms || 0} {property.bedrooms === 1 ? 'Bed' : 'Beds'}</span>
@@ -157,8 +157,8 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
         </div>
 
         {/* View details */}
-        <div className="pt-4 border-t border-gray-200 dark:border-realty-700">
-          <div className="group-hover:text-realty-gold flex items-center justify-end text-sm font-medium text-realty-600 dark:text-realty-300">
+        <div className="pt-4 border-t border-border">
+          <div className="group-hover:text-accent flex items-center justify-end text-sm font-medium text-muted-foreground">
             View Details
             <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
           </div>

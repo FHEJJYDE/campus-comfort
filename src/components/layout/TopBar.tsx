@@ -10,18 +10,18 @@ import {
 
 const TopBar = () => {
   return (
-    <div className="sticky top-0 z-50 bg-realty-900 dark:bg-realty-950 text-white py-2 border-b border-realty-800 top-bar">
+    <div className="sticky top-0 z-50 bg-primary text-primary-foreground py-2 border-b border-primary/80 top-bar">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
           {/* Left Side - Contact Information */}
           <div className="flex flex-wrap items-center gap-4 md:gap-6 text-xs md:text-sm">
             <div className="flex items-center gap-2">
-              <Phone className="h-3 w-3 md:h-4 md:w-4 text-realty-gold" />
+              <Phone className="h-3 w-3 md:h-4 md:w-4 text-accent" />
               <span>+234 (0) 123 456 7890</span>
             </div>
 
             <div className="flex items-center gap-2">
-              <Mail className="h-3 w-3 md:h-4 md:w-4 text-realty-gold" />
+              <Mail className="h-3 w-3 md:h-4 md:w-4 text-accent" />
               <span>info@godirectrealty.com</span>
             </div>
 
@@ -30,13 +30,13 @@ const TopBar = () => {
 
           {/* Right Side - Social Media Icons */}
           <div className="flex items-center gap-2 md:gap-3">
-            <span className="text-xs hidden md:inline text-realty-300">Follow Us:</span>
+            <span className="text-xs hidden md:inline opacity-80">Follow Us:</span>
 
             <div className="flex items-center gap-1 md:gap-2">
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-realty-800 dark:hover:bg-realty-700 transition-colors duration-300"
+                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-primary-foreground/10 transition-colors duration-300"
                 asChild
               >
                 <a
@@ -45,14 +45,14 @@ const TopBar = () => {
                   rel="noopener noreferrer"
                   aria-label="Follow us on Facebook"
                 >
-                  <Facebook className="h-3 w-3 md:h-4 md:w-4 text-realty-300 hover:text-realty-gold transition-colors" />
+                  <Facebook className="h-3 w-3 md:h-4 md:w-4 opacity-80 hover:opacity-100 hover:text-accent transition-colors" />
                 </a>
               </Button>
 
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-realty-800 dark:hover:bg-realty-700 transition-colors duration-300"
+                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-primary-foreground/10 transition-colors duration-300"
                 asChild
               >
                 <a
@@ -61,14 +61,14 @@ const TopBar = () => {
                   rel="noopener noreferrer"
                   aria-label="Follow us on Twitter"
                 >
-                  <Twitter className="h-3 w-3 md:h-4 md:w-4 text-realty-300 hover:text-realty-gold transition-colors" />
+                  <Twitter className="h-3 w-3 md:h-4 md:w-4 opacity-80 hover:opacity-100 hover:text-accent transition-colors" />
                 </a>
               </Button>
 
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-realty-800 dark:hover:bg-realty-700 transition-colors duration-300"
+                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-primary-foreground/10 transition-colors duration-300"
                 asChild
               >
                 <a
@@ -77,14 +77,14 @@ const TopBar = () => {
                   rel="noopener noreferrer"
                   aria-label="Follow us on Instagram"
                 >
-                  <Instagram className="h-3 w-3 md:h-4 md:w-4 text-realty-300 hover:text-realty-gold transition-colors" />
+                  <Instagram className="h-3 w-3 md:h-4 md:w-4 opacity-80 hover:opacity-100 hover:text-accent transition-colors" />
                 </a>
               </Button>
 
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-realty-800 dark:hover:bg-realty-700 transition-colors duration-300"
+                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-primary-foreground/10 transition-colors duration-300"
                 asChild
               >
                 <a
@@ -93,14 +93,14 @@ const TopBar = () => {
                   rel="noopener noreferrer"
                   aria-label="Follow us on LinkedIn"
                 >
-                  <Linkedin className="h-3 w-3 md:h-4 md:w-4 text-realty-300 hover:text-realty-gold transition-colors" />
+                  <Linkedin className="h-3 w-3 md:h-4 md:w-4 opacity-80 hover:opacity-100 hover:text-accent transition-colors" />
                 </a>
               </Button>
 
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-realty-800 dark:hover:bg-realty-700 transition-colors duration-300"
+                className="h-6 w-6 md:h-8 md:w-8 p-0 rounded-full hover:bg-primary-foreground/10 transition-colors duration-300"
                 asChild
               >
                 <a
@@ -109,7 +109,7 @@ const TopBar = () => {
                   rel="noopener noreferrer"
                   aria-label="Subscribe to our YouTube channel"
                 >
-                  <Youtube className="h-3 w-3 md:h-4 md:w-4 text-realty-300 hover:text-realty-gold transition-colors" />
+                  <Youtube className="h-3 w-3 md:h-4 md:w-4 opacity-80 hover:opacity-100 hover:text-accent transition-colors" />
                 </a>
               </Button>
             </div>

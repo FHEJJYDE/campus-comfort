@@ -69,15 +69,15 @@ export function SiteLoader({ isLoading = true }: { isLoading?: boolean }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
       <div className="flex flex-col items-center space-y-6">
         {/* Simple logo */}
-        <div className="w-16 h-16 bg-realty-gold rounded-lg flex items-center justify-center">
-          <span className="text-realty-900 font-bold text-xl">GD</span>
+        <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center">
+          <span className="text-primary-foreground font-bold text-xl">CC</span>
         </div>
 
         {/* Simple loading indicator */}
         <div className="flex space-x-2">
-          <div className="w-2 h-2 bg-realty-gold rounded-full animate-pulse"></div>
-          <div className="w-2 h-2 bg-realty-gold rounded-full animate-pulse [animation-delay:0.2s]"></div>
-          <div className="w-2 h-2 bg-realty-gold rounded-full animate-pulse [animation-delay:0.4s]"></div>
+          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+          <div className="w-2 h-2 bg-primary rounded-full animate-pulse [animation-delay:0.2s]"></div>
+          <div className="w-2 h-2 bg-primary rounded-full animate-pulse [animation-delay:0.4s]"></div>
         </div>
       </div>
     </div>
