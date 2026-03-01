@@ -9,6 +9,7 @@ import { Building, Users, UserCheck, DollarSign, Eye, TrendingUp } from "lucide-
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useDashboardStats } from "@/hooks/useDashboardStats";
+import { useCurrency } from "@/contexts/CurrencyContext";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 // Import admin dashboard pages
@@ -45,6 +46,7 @@ interface Activity {
 function AdminDashboardHome() {
   const [timeRange, setTimeRange] = useState('30d');
   const { stats, loading, error } = useDashboardStats(timeRange);
+  const { formatPrice } = useCurrency();
   const [recentActivities, setRecentActivities] = useState<Activity[]>([]);
   const [activitiesLoading, setActivitiesLoading] = useState(true);
 
@@ -115,7 +117,7 @@ function AdminDashboardHome() {
             id: transaction.id,
             type: "transaction",
             title: "Transaction Processed",
-            description: `Amount: ₦${transaction.amount?.toLocaleString() || '0'}`,
+            description: `Amount: ${formatPrice(transaction.amount || 0)}`,
             timestamp: new Date(transaction.created_at),
             status: transaction.status as "pending" | "completed" | "cancelled" || "completed"
           });
