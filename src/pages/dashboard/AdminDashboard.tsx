@@ -31,6 +31,7 @@ import SecurityCompliance from "@/components/security/SecurityCompliance";
 import PaymentManager from "@/components/payments/PaymentManager";
 import NotificationCenter from "@/components/notifications/NotificationCenter";
 import AdminProfile from "../admin/AdminProfile";
+import { LocationManagement } from "@/components/admin/LocationManagement";
 
 interface Activity {
   id: string;
@@ -263,6 +264,7 @@ export function AdminDashboard() {
         <Route path="payments" element={<PaymentManager />} />
         <Route path="notifications" element={<NotificationCenter />} />
         <Route path="profile" element={<AdminProfile />} />
+        <Route path="locations" element={<LocationManagement />} />
       </Routes>
     </DashboardLayout>
   );

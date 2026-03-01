@@ -67,6 +67,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
           { title: "Analytics", url: `/dashboard/admin/analytics`, icon: BarChart3 },
           { title: "Users", url: `/dashboard/admin/users`, icon: Users },
           { title: "KYC Management", url: `/dashboard/admin/kyc`, icon: UserCheck },
+          { title: "Locations", url: `/dashboard/admin/locations`, icon: MapPin },
           { title: "Transactions", url: `/dashboard/admin/transactions`, icon: DollarSign },
           { title: "Reports", url: `/dashboard/admin/reports`, icon: FileText },
           { title: "Security", url: `/dashboard/admin/security`, icon: Shield },
@@ -116,11 +117,11 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
       <SidebarContent className="bg-card">
         <div className="p-4 border-b border-border/50">
           <NavLink to="/" className="flex items-center gap-3 group">
-            <div className="h-8 w-8 bg-gradient-to-br from-realty-800 to-realty-900 dark:from-realty-gold dark:to-realty-gold/80 rounded-md flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
-              <span className="text-white dark:text-realty-900 font-bold text-sm">GD</span>
+            <div className="h-8 w-8 bg-primary rounded-md flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:bg-primary/90">
+              <span className="text-primary-foreground font-bold text-sm">GD</span>
             </div>
             <div className="overflow-hidden">
-              <h2 className="font-heading font-bold text-lg text-foreground">GODIRECT</h2>
+              <h2 className="font-heading font-bold text-lg text-foreground transition-colors duration-200 group-hover:text-primary">GODIRECT</h2>
               <p className="text-xs text-muted-foreground capitalize">{userRole} Portal</p>
             </div>
           </NavLink>
@@ -144,14 +145,14 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
                         end
                         onClick={handleLinkClick}
                         className={`
-                          flex items-center gap-3 px-3 py-2 rounded-lg transition-all duration-200
+                          flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200
                           ${active
                             ? "bg-primary text-primary-foreground shadow-sm"
-                            : "text-foreground hover:bg-muted/60 hover:text-foreground"
+                            : "text-muted-foreground hover:bg-accent/10 hover:text-accent hover:shadow-sm hover:translate-x-0.5"
                           }
                         `}
                       >
-                        <IconComponent className="h-5 w-5 shrink-0" />
+                        <IconComponent className={`h-5 w-5 shrink-0 transition-transform duration-200 ${!active && "group-hover:scale-110"}`} />
                         <span className="font-medium text-sm truncate">
                           {item.title}
                         </span>

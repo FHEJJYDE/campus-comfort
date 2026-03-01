@@ -24,81 +24,76 @@ import {
 } from "@/components/ui/carousel";
 
 import { useLocationStats } from "@/hooks/useLocationStats";
+import { useLocations } from "@/hooks/useLocations";
 
 const Index = () => {
-  const { getCountForCity, loading } = useLocationStats();
+  const { getCountForCity, loading: statsLoading } = useLocationStats();
+  const { locations: dbLocations, loading: locationsLoading } = useLocations();
 
   // Smooth scroll effect for the page
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  // Expanded locations data
-  const locations = [
+  // Use locations from database, fallback to hardcoded if empty
+  const fallbackLocations = [
     {
-      id: 1,
+      id: '1',
       name: "Enugu",
-      price: "From ₦25M",
-      image: "/locations/location-1.jpg",
-      link: "/properties?location=Enugu"
+      state: "Enugu",
+      country: "Nigeria",
+      image_url: "/locations/location-1.jpg",
+      is_active: true,
+      display_order: 1
     },
     {
-      id: 2,
+      id: '2',
       name: "Calabar",
-      price: "From ₦22M",
-      image: "/locations/location-2.jpg",
-      link: "/properties?location=Calabar"
+      state: "Cross River",
+      country: "Nigeria",
+      image_url: "/locations/location-2.jpg",
+      is_active: true,
+      display_order: 2
     },
     {
-      id: 3,
+      id: '3',
       name: "Lagos",
-      price: "From ₦35M",
-      image: "/locations/location-3.jpg",
-      link: "/properties?location=Lagos"
+      state: "Lagos",
+      country: "Nigeria",
+      image_url: "/locations/location-3.jpg",
+      is_active: true,
+      display_order: 3
     },
     {
-      id: 4,
+      id: '4',
       name: "Abuja",
-      price: "From ₦40M",
-      image: "/locations/location-4.jpg",
-      link: "/properties?location=Abuja"
+      state: "FCT",
+      country: "Nigeria",
+      image_url: "/locations/location-4.jpg",
+      is_active: true,
+      display_order: 4
     },
     {
-      id: 5,
+      id: '5',
       name: "Akwa Ibom",
-      price: "From ₦18M",
-      image: "/locations/location-5.jpg",
-      link: "/properties?location=Akwa%20Ibom"
+      state: "Akwa Ibom",
+      country: "Nigeria",
+      image_url: "/locations/location-5.jpg",
+      is_active: true,
+      display_order: 5
     },
     {
-      id: 6,
+      id: '6',
       name: "Anambra",
-      price: "From ₦20M",
-      image: "/locations/location-6.jpg",
-      link: "/properties?location=Anambra"
-    },
-    {
-      id: 7,
-      name: "Kano",
-      price: "From ₦15M",
-      image: "/locations/location-7.jpg",
-      link: "/properties?location=Kano"
-    },
-    {
-      id: 8,
-      name: "Kaduna",
-      price: "From ₦17M",
-      image: "/locations/location-8.jpg",
-      link: "/properties?location=Kaduna"
-    },
-    {
-      id: 9,
-      name: "Port Harcourt",
-      price: "From ₦30M",
-      image: "/locations/location-9.jpg",
-      link: "/properties?location=Port%20Harcourt"
+      state: "Anambra",
+      country: "Nigeria",
+      image_url: "/locations/location-6.jpg",
+      is_active: true,
+      display_order: 6
     }
   ];
+
+  const locations = dbLocations.length > 0 ? dbLocations : fallbackLocations;
 
   return (
     <>
@@ -159,49 +154,68 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {locations.map((location) => {
-              const count = getCountForCity(location.name);
-              return (
-                <div key={location.id} className="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 hover:shadow-xl">
-                  <div className="absolute inset-0 z-0">
-                    <img
-                      src={location.image}
-                      alt={location.name}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        // Show gradient fallback
-                        const parent = target.parentElement;
-                        if (parent) {
-                          parent.innerHTML = '<div class="absolute inset-0 bg-gradient-to-br from-realty-500 to-realty-700"></div>';
-                        }
-                      }}
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-realty-900/90 to-realty-900/20 z-10"></div>
-                  <div className="w-full h-80 relative"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                    <div className="flex items-center text-white mb-4">
-                      <MapPin className="h-5 w-5 mr-2 text-accent" />
-                      <h3 className="text-xl font-semibold">{location.name}</h3>
+            {locationsLoading ? (
+              <div className="col-span-full text-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent mx-auto"></div>
+                <p className="text-muted-foreground mt-4">Loading locations...</p>
+              </div>
+            ) : locations.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-muted-foreground">No locations available at the moment.</p>
+              </div>
+            ) : (
+              locations.map((location) => {
+                const count = getCountForCity(location.name);
+                const imageUrl = location.image_url || `/locations/location-${location.display_order}.jpg`;
+                const locationLink = `/properties?location=${encodeURIComponent(location.name)}`;
+
+                return (
+                  <div key={location.id} className="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 hover:shadow-xl">
+                    <div className="absolute inset-0 z-0">
+                      <img
+                        src={imageUrl}
+                        alt={location.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          // Show gradient fallback
+                          const parent = target.parentElement;
+                          if (parent) {
+                            parent.innerHTML = '<div class="absolute inset-0 bg-gradient-to-br from-primary to-accent"></div>';
+                          }
+                        }}
+                      />
                     </div>
-                    <div className="flex flex-wrap gap-3 mb-4">
-                      <span className="bg-white/20 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
-                        {loading ? '...' : `${count} Properties`}
-                      </span>
-                      <span className="bg-white/20 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">{location.price}</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-black/20 z-10"></div>
+                    <div className="w-full h-80 relative"></div>
+                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                      <div className="flex items-center text-white mb-4">
+                        <MapPin className="h-5 w-5 mr-2 text-accent" />
+                        <h3 className="text-xl font-semibold">{location.name}</h3>
+                      </div>
+                      {location.description && (
+                        <p className="text-white/80 text-sm mb-3 line-clamp-2">{location.description}</p>
+                      )}
+                      <div className="flex flex-wrap gap-3 mb-4">
+                        <span className="bg-white/20 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+                          {statsLoading ? '...' : `${count} Properties`}
+                        </span>
+                        <span className="bg-white/20 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full">
+                          {location.state}
+                        </span>
+                      </div>
+                      <Button asChild variant="outline" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 w-full">
+                        <Link to={locationLink} className="flex items-center justify-center">
+                          Explore {location.name}
+                          <ChevronRight className="h-4 w-4 ml-1" />
+                        </Link>
+                      </Button>
                     </div>
-                    <Button asChild variant="outline" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 w-full">
-                      <Link to={location.link} className="flex items-center justify-center">
-                        Explore {location.name}
-                        <ChevronRight className="h-4 w-4 ml-1" />
-                      </Link>
-                    </Button>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })
+            )}
           </div>
         </div>
       </section>
@@ -275,7 +289,7 @@ const Index = () => {
                   <ChevronRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-primary-foreground/30 hover:bg-primary-foreground/10 text-primary-foreground font-semibold px-8 py-6 text-lg backdrop-blur-sm">
+              <Button asChild size="lg" variant="outline" className="bg-primary-foreground border-2 border-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all">
                 <Link to="/list-property">List Your Property</Link>
               </Button>
             </div>
