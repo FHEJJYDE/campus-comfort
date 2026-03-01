@@ -5,6 +5,7 @@ import { RecentActivity } from "@/components/dashboard/RecentActivity";
 import { Heart, Eye, MessageSquare, Calendar, Home } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import {
   fetchUserDashboardStats,
   fetchUserRecentActivities,
@@ -19,12 +20,16 @@ import UserMessages from "../user/UserMessages";
 import UserAppointments from "../user/UserAppointments";
 import UserSaved from "../user/UserSaved";
 import UserProfile from "../user/UserProfile";
+import UserKYC from "../user/UserKYC";
 
 // Import new feature components
 import NotificationCenter from "@/components/notifications/NotificationCenter";
 import UnifiedSearchHistory from "@/components/searches/UnifiedSearchHistory";
 import PaymentManager from "@/components/payments/PaymentManager";
 import UnifiedMessaging from "@/components/messages/UnifiedMessaging";
+
+// Import KYC components
+import { KYCStatusDisplay } from "@/components/kyc/KYCStatusDisplay";
 
 function UserDashboardHome() {
   const { user } = useAuth();
@@ -33,10 +38,13 @@ function UserDashboardHome() {
   const [error, setError] = useState<string | null>(null);
   const [recentActivities, setRecentActivities] = useState<any[]>([]);
   const [savedProperties, setSavedProperties] = useState<any[]>([]);
+  const [kycSubmission, setKycSubmission] = useState<any | null>(null);
+  const [kycLoading, setKycLoading] = useState(true);
 
   useEffect(() => {
     if (user) {
       loadDashboardData();
+      fetchKYCSubmission();
     }
   }, [user]);
 
@@ -61,6 +69,29 @@ function UserDashboardHome() {
       toast.error("Failed to load dashboard data: " + (err.message || "Unknown error"));
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchKYCSubmission = async () => {
+    try {
+      setKycLoading(true);
+      const { data, error } = await supabase
+        .from('student_kyc')
+        .select('*')
+        .eq('user_id', user!.id)
+        .single();
+
+      if (error && error.code !== 'PGRST116') {
+        // PGRST116 is "no rows returned" - not an error in this case
+        console.error('Error fetching KYC submission:', error);
+        return;
+      }
+
+      setKycSubmission(data);
+    } catch (error) {
+      console.error('Error fetching KYC submission:', error);
+    } finally {
+      setKycLoading(false);
     }
   };
 
@@ -118,6 +149,18 @@ function UserDashboardHome() {
           icon={Calendar}
           loading={loading}
         />
+      </div>
+
+      {/* KYC Status Card */}
+      <div className="rounded-lg border bg-card text-card-foreground shadow-sm p-4 sm:p-6">
+        <h3 className="text-lg font-semibold mb-4">Identity Verification Status</h3>
+        {kycLoading ? (
+          <div className="flex items-center justify-center py-8">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+          </div>
+        ) : (
+          <KYCStatusDisplay submission={kycSubmission} />
+        )}
       </div>
 
       <div className="grid gap-4 sm:gap-6 lg:grid-cols-7">
@@ -182,6 +225,7 @@ export function UserDashboard() {
         <Route path="notifications" element={<NotificationCenter />} />
         <Route path="payments" element={<PaymentManager />} />
         <Route path="profile" element={<UserProfile />} />
+        <Route path="kyc" element={<UserKYC />} />
       </Routes>
     </DashboardLayout>
   );

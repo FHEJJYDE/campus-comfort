@@ -26,6 +26,7 @@ import AdminReports from "../admin/AdminReports";
 
 // Import KYC Management component
 import { AgentKYCManagement } from "@/components/admin/AgentKYCManagement";
+import AdminStudentKYC from "../admin/AdminStudentKYC";
 
 // Import new feature components
 import SecurityCompliance from "@/components/security/SecurityCompliance";
@@ -260,6 +261,9 @@ export function AdminDashboard() {
 
         {/* KYC Management Route */}
         <Route path="kyc" element={<AgentKYCManagement />} />
+
+        {/* Student KYC Management Route */}
+        <Route path="student-kyc" element={<AdminStudentKYC />} />
 
         {/* New Feature Routes */}
         <Route path="security" element={<SecurityCompliance />} />
