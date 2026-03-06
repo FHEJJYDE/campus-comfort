@@ -65,10 +65,19 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
     }
   };
 
+  // Get property image with fallback
+  const getPropertyImage = () => {
+    if (property.images && property.images.length > 0 && property.images[0]) {
+      return property.images[0];
+    }
+    return "/placeholder.svg";
+  };
+
   // Handle image loading errors
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
     target.src = "/placeholder.svg";
+    setImageLoaded(true); // Show the placeholder
   };
 
   return (
@@ -82,7 +91,7 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
           <div className="absolute inset-0 bg-muted animate-pulse" />
         )}
         <img
-          src={property.images[0] || "/placeholder.svg"}
+          src={getPropertyImage()}
           alt={property.title}
           className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${imageLoaded ? 'block' : 'hidden'}`}
           onLoad={() => setImageLoaded(true)}
