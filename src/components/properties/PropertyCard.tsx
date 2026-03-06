@@ -1,6 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
-import { Heart, Bed, Bath, Move, MapPin, ArrowRight } from "lucide-react";
+import { Heart, Bed, Bath, Move, MapPin, ArrowRight, Home } from "lucide-react";
 import { Property } from "@/types/database";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { cn } from "@/lib/utils";
@@ -17,6 +17,18 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   const { user } = useAuth();
   const [isFavorite, setIsFavorite] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  // Force show image after timeout if it hasn't loaded
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!imageLoaded && !imageError) {
+        setImageLoaded(true);
+      }
+    }, 3000); // Show after 3 seconds even if onLoad didn't fire
+
+    return () => clearTimeout(timer);
+  }, [imageLoaded, imageError]);
 
   // Check if property is already favorited
   useEffect(() => {
@@ -75,10 +87,20 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
 
   // Handle image loading errors
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    const target = e.target as HTMLImageElement;
-    target.src = "/placeholder.svg";
-    setImageLoaded(true); // Show the placeholder
+    console.log('Image failed to load for property:', property.id);
+    setImageError(true);
+    setImageLoaded(true); // Show the fallback
   };
+
+  // Default property image as inline SVG
+  const DefaultPropertyImage = () => (
+    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+      <div className="text-center">
+        <Home className="h-16 w-16 mx-auto text-muted-foreground/50 mb-2" />
+        <p className="text-sm text-muted-foreground">No Image Available</p>
+      </div>
+    </div>
+  );
 
   return (
     <Link
@@ -86,18 +108,30 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
       className="group block property-card-shadow rounded-xl overflow-hidden bg-card transition-all duration-300"
     >
       {/* Image container */}
-      <div className="relative w-full h-64 overflow-hidden">
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-muted animate-pulse" />
+      <div className="relative w-full h-64 overflow-hidden bg-muted">
+        {imageError ? (
+          <DefaultPropertyImage />
+        ) : (
+          <>
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
+                <div className="text-muted-foreground text-sm">Loading...</div>
+              </div>
+            )}
+            <img
+              src={getPropertyImage()}
+              alt={property.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              style={{ display: imageLoaded ? 'block' : 'none' }}
+              onLoad={() => {
+                console.log('Image loaded for:', property.title);
+                setImageLoaded(true);
+              }}
+              onError={handleImageError}
+              loading="lazy"
+            />
+          </>
         )}
-        <img
-          src={getPropertyImage()}
-          alt={property.title}
-          className={`w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 ${imageLoaded ? 'block' : 'hidden'}`}
-          onLoad={() => setImageLoaded(true)}
-          onError={handleImageError}
-          loading="lazy"
-        />
         {imageLoaded && (
           <>
             <div
