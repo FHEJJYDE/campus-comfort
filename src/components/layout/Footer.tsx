@@ -14,11 +14,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="h-10 w-10 bg-accent rounded-md flex items-center justify-center shadow-lg">
-                <span className="text-accent-foreground font-bold text-lg">CC</span>
-              </div>
-              <span className="text-xl font-heading font-bold tracking-tight">Campus Comfort</span>
+            <div className="flex items-center">
+              <img
+                src="/campus-comfort-logo.png"
+                alt="Campus Comfort"
+                className="h-14 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
               Connecting you with premier student housing near universities and colleges. Your trusted partner in campus living.

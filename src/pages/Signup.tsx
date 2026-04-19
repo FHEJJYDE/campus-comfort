@@ -95,11 +95,15 @@ const Signup = () => {
           {/* Overlay for better text visibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60" />
 
-          {/* Animated GD Logo */}
+          {/* Animated Campus Comfort Logo */}
           <div className="relative z-10 flex flex-col items-center">
             <div className="relative group mb-8">
-              <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl transform transition-all duration-500 group-hover:scale-110">
-                <span className="text-white font-bold text-4xl">GD</span>
+              <div className="w-64 h-64 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl transform transition-all duration-500 group-hover:scale-110 p-10">
+                <img
+                  src="/campus-comfort-logo.png"
+                  alt="Campus Comfort"
+                  className="w-full h-auto brightness-0 invert"
+                />
               </div>
               <div className="absolute inset-0 rounded-2xl bg-white/10 animate-ping" />
               <div className="absolute -inset-2 bg-gradient-to-r from-white/20 to-transparent rounded-2xl blur-xl animate-pulse" />
@@ -130,16 +134,12 @@ const Signup = () => {
             <CardHeader className="space-y-4 pb-6 relative px-4 sm:px-6">
               {/* Mobile logo for small screens */}
               <div className="lg:hidden flex justify-center mb-6">
-                <Link to="/" className="flex items-center space-x-3 group">
-                  <div className="relative">
-                    <div className="h-10 w-10 sm:h-12 sm:w-12 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      <span className="text-white font-bold text-lg sm:text-xl">GD</span>
-                    </div>
-                    <div className="absolute inset-0 rounded-xl bg-primary/20 animate-ping" />
-                  </div>
-                  <span className="text-xl sm:text-2xl font-heading font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                    Campus Comfort
-                  </span>
+                <Link to="/" className="flex items-center group">
+                  <img
+                    src="/campus-comfort-logo.png"
+                    alt="Campus Comfort"
+                    className="h-14 sm:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+                  />
                 </Link>
               </div>
 

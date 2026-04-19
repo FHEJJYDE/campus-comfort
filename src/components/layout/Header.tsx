@@ -36,13 +36,12 @@ const Header = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Enhanced Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="h-9 w-9 bg-primary rounded-md flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-105">
-              <span className="text-primary-foreground font-bold text-lg">CC</span>
-            </div>
-            <span className="text-xl font-heading font-bold text-foreground tracking-tight transition-colors duration-300 group-hover:text-primary">
-              Campus Comfort
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img
+              src="/campus-comfort-logo.png"
+              alt="Campus Comfort"
+              className="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Enhanced Desktop Navigation */}

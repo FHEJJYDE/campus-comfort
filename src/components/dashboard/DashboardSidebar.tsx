@@ -117,11 +117,12 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
       <SidebarContent className="bg-card">
         <div className="p-4 border-b border-border/50">
           <NavLink to="/" className="flex items-center gap-3 group">
-            <div className="h-8 w-8 bg-primary rounded-md flex items-center justify-center shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:bg-primary/90">
-              <span className="text-primary-foreground font-bold text-sm">CC</span>
-            </div>
+            <img
+              src="/campus-comfort-logo.png"
+              alt="Campus Comfort"
+              className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
+            />
             <div className="overflow-hidden">
-              <h2 className="font-heading font-bold text-lg text-foreground transition-colors duration-200 group-hover:text-primary">Campus Comfort</h2>
               <p className="text-xs text-muted-foreground capitalize">{userRole} Portal</p>
             </div>
           </NavLink>
