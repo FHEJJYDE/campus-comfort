@@ -98,23 +98,23 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Campus Comfort | Your Campus Living Solution</title>
-        <meta name="description" content="Find your perfect campus accommodation with Campus Comfort. Browse thousands of student-friendly properties near universities and colleges." />
-        <meta name="keywords" content="student housing, campus accommodation, university housing, college rentals, student apartments, campus living" />
+        <title>Tonys Estate | Find Your Perfect Home</title>
+        <meta name="description" content="Find your perfect property with Tonys Estate. Browse thousands of properties across Nigeria." />
+        <meta name="keywords" content="real estate, properties, houses, apartments, Nigeria, rentals, for sale" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://campuscomfort.com/" />
-        <meta property="og:title" content="Campus Comfort | Your Campus Living Solution" />
-        <meta property="og:description" content="Find your perfect campus accommodation with Campus Comfort. Browse thousands of student-friendly properties near universities and colleges." />
-        <meta property="og:image" content="https://campuscomfort.com/og-image.jpg" />
+        <meta property="og:url" content="https://tonysestate.com/" />
+        <meta property="og:title" content="Tonys Estate | Find Your Perfect Home" />
+        <meta property="og:description" content="Find your perfect property with Tonys Estate. Browse thousands of properties across Nigeria." />
+        <meta property="og:image" content="https://tonysestate.com/og-image.jpg" />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://campuscomfort.com/" />
-        <meta property="twitter:title" content="Campus Comfort | Your Campus Living Solution" />
-        <meta property="twitter:description" content="Find your perfect campus accommodation with Campus Comfort. Browse thousands of student-friendly properties near universities and colleges." />
-        <meta property="twitter:image" content="https://campuscomfort.com/og-image.jpg" />
+        <meta property="twitter:url" content="https://tonysestate.com/" />
+        <meta property="twitter:title" content="Tonys Estate | Find Your Perfect Home" />
+        <meta property="twitter:description" content="Find your perfect property with Tonys Estate. Browse thousands of properties across Nigeria." />
+        <meta property="twitter:image" content="https://tonysestate.com/og-image.jpg" />
       </Helmet>
 
       {/* Main hero section with search */}
@@ -248,10 +248,10 @@ const Index = () => {
               <span className="text-sm font-semibold text-accent uppercase tracking-wider">Testimonials</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6">
-              What Our <span className="text-accent">Students</span> Say
+              What Our <span className="text-accent">Clients</span> Say
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Real experiences from students who found their perfect home with Campus Comfort
+              Real experiences from clients who found their perfect home with Tonys Estate
             </p>
           </div>
           <TestimonialsNew />

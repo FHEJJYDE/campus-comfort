@@ -119,13 +119,13 @@ const PropertyDetails = () => {
   return (
     <>
       <Helmet>
-        <title>{property.title} | Campus Comfort</title>
+        <title>{property.title} | Tonys Estate</title>
         <meta name="description" content={property.description?.substring(0, 160) || ""} />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://campuscomfort.com/properties/${property.id}`} />
-        <meta property="og:title" content={`${property.title} | Campus Comfort`} />
+        <meta property="og:title" content={`${property.title} | Tonys Estate`} />
         <meta property="og:description" content={property.description?.substring(0, 160) || ""} />
         {property.images && property.images.length > 0 && (
           <meta property="og:image" content={property.images[0]} />
@@ -134,7 +134,7 @@ const PropertyDetails = () => {
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={`https://campuscomfort.com/properties/${property.id}`} />
-        <meta property="twitter:title" content={`${property.title} | Campus Comfort`} />
+        <meta property="twitter:title" content={`${property.title} | Tonys Estate`} />
         <meta property="twitter:description" content={property.description?.substring(0, 160) || ""} />
         {property.images && property.images.length > 0 && (
           <meta property="twitter:image" content={property.images[0]} />

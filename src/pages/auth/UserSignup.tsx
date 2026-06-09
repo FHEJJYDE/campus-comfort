@@ -6,14 +6,14 @@ export default function UserSignup() {
   return (
     <>
       <Helmet>
-        <title>User Sign Up | Campus Comfort</title>
+        <title>User Sign Up | Tonys Estate</title>
       </Helmet>
 
       <AuthForm
         mode="signup"
         userType="user"
         title="Create a user account"
-        description="Enter your information to create your Campus Comfort student account"
+        description="Enter your information to create your Tonys Estate student account"
         redirectPath="/user-login"
       />
     </>

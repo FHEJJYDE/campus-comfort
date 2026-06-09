@@ -134,7 +134,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Login | Campus Comfort</title>
+        <title>Login | Tonys Estate</title>
       </Helmet>
 
       <div className="min-h-screen flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
@@ -146,22 +146,20 @@ const Login = () => {
           {/* Overlay for better text visibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60" />
 
-          {/* Animated Campus Comfort Logo */}
+          {/* Animated Tonys Estate Logo */}
           <div className="relative z-10 flex flex-col items-center">
             <div className="relative group mb-8">
               <div className="w-64 h-64 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-2xl transform transition-all duration-500 group-hover:scale-110 p-10">
-                <img
-                  src="/campus-comfort-logo.png"
-                  alt="Campus Comfort"
-                  className="w-full h-auto brightness-0 invert"
-                />
+                <h1 className="text-3xl font-bold text-white">
+                  Tonys Estate
+                </h1>
               </div>
               <div className="absolute inset-0 rounded-2xl bg-white/10 animate-ping" />
               <div className="absolute -inset-2 bg-gradient-to-r from-white/20 to-transparent rounded-2xl blur-xl animate-pulse" />
             </div>
 
             <h1 className="text-4xl font-bold mb-4 text-center">
-              Welcome to <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Campus Comfort</span>
+              Welcome to <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">Tonys Estate</span>
             </h1>
 
             <p className="text-xl text-white/90 text-center max-w-md">
@@ -186,11 +184,9 @@ const Login = () => {
               {/* Mobile logo for small screens */}
               <div className="lg:hidden flex justify-center mb-6">
                 <Link to="/" className="flex items-center group">
-                  <img
-                    src="/campus-comfort-logo.png"
-                    alt="Campus Comfort"
-                    className="h-14 sm:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
-                  />
+                  <h2 className="text-2xl font-bold text-foreground transition-transform duration-300 group-hover:scale-105">
+                    Tonys Estate
+                  </h2>
                 </Link>
               </div>
 

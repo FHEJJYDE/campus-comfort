@@ -33,8 +33,8 @@ const ListProperty = () => {
     return (
         <>
             <Helmet>
-                <title>List Your Property | Campus Comfort</title>
-                <meta name="description" content="List your student housing with Campus Comfort and reach thousands of students looking for accommodation." />
+                <title>List Your Property | Tonys Estate</title>
+                <meta name="description" content="List your student housing with Tonys Estate and reach thousands of students looking for accommodation." />
             </Helmet>
 
             {/* Hero Section */}
@@ -229,7 +229,7 @@ const ListProperty = () => {
                                     </div>
                                 </div>
                                 <p className="text-primary-foreground/90 mb-4">
-                                    "As a repeat user, I've rented 4 properties through Campus Comfort. The platform saved me so much time finding the perfect student housing!"
+                                    "As a repeat user, I've rented 4 properties through Tonys Estate. The platform saved me so much time finding the perfect student housing!"
                                 </p>
                                 <div className="flex items-center text-accent">
                                     {[...Array(5)].map((_, i) => (
@@ -272,7 +272,7 @@ const ListProperty = () => {
                             Ready to <span className="text-accent">Get Started</span>?
                         </h2>
                         <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-                            Join thousands of property owners who trust Campus Comfort for their listing needs
+                            Join thousands of property owners who trust Tonys Estate for their listing needs
                         </p>
                         <div className="mt-12">
                             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-medium text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl" asChild>

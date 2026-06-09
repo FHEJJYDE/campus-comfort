@@ -12,8 +12,8 @@ const ListPropertyProtected = () => {
     return (
         <>
             <Helmet>
-                <title>List Your Property | Campus Comfort</title>
-                <meta name="description" content="List your student housing with Campus Comfort and reach thousands of students looking for accommodation." />
+                <title>List Your Property | Tonys Estate</title>
+                <meta name="description" content="List your student housing with Tonys Estate and reach thousands of students looking for accommodation." />
             </Helmet>
 
             {/* Header Section */}

@@ -71,7 +71,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('push', (event) => {
     if (event.data) {
         const data = event.data.json();
-        const title = data.title || 'Campus Comfort Notification';
+        const title = data.title || 'Tonys Estate Notification';
         const options = {
             body: data.body || 'You have a new notification',
             icon: '/pwa-icons/android-chrome-192x192.png',

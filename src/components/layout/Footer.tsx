@@ -15,14 +15,12 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <img
-                src="/campus-comfort-logo.png"
-                alt="Campus Comfort"
-                className="h-14 w-auto brightness-0 invert"
-              />
+              <h2 className="text-2xl font-bold text-primary-foreground">
+                Tonys Estate
+              </h2>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed max-w-xs">
-              Connecting you with premier student housing near universities and colleges. Your trusted partner in campus living.
+              Connecting you with premier real estate properties across Nigeria. Your trusted partner in finding the perfect home.
             </p>
             <div className="flex space-x-3">
               <Button variant="ghost" size="icon" className="text-primary-foreground/80 hover:text-accent hover:bg-primary-foreground/10 rounded-full transition-all duration-300">
@@ -108,7 +106,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 text-primary-foreground/80 mr-2 flex-shrink-0" />
-                <span className="text-primary-foreground/80">info@campuscomfort.com</span>
+                <span className="text-primary-foreground/80">info@tonysestate.com</span>
               </li>
             </ul>
           </div>
@@ -141,7 +139,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-xs text-primary-foreground/70">
-          <p>© {new Date().getFullYear()} Campus Comfort. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Tonys Estate. All rights reserved.</p>
           <div className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2">
             <Link to="/" className="hover:text-accent transition-colors">Privacy Policy</Link>
             <Link to="/" className="hover:text-accent transition-colors">Terms of Service</Link>

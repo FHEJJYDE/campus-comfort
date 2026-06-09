@@ -37,11 +37,9 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Enhanced Logo */}
           <Link to="/" className="flex items-center group">
-            <img
-              src="/campus-comfort-logo.png"
-              alt="Campus Comfort"
-              className="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
-            />
+            <h1 className="text-xl md:text-2xl font-bold text-foreground transition-transform duration-300 group-hover:scale-105">
+              Tonys Estate
+            </h1>
           </Link>
 
           {/* Enhanced Desktop Navigation */}

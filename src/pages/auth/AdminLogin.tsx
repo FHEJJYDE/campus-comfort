@@ -6,7 +6,7 @@ export default function AdminLogin() {
   return (
     <>
       <Helmet>
-        <title>Admin Login | Campus Comfort</title>
+        <title>Admin Login | Tonys Estate</title>
       </Helmet>
 
       <AuthForm

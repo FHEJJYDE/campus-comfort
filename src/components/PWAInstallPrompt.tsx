@@ -36,7 +36,7 @@ const PWAInstallPrompt = () => {
     return (
         <div className="fixed bottom-4 right-4 left-4 md:left-auto md:w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg border p-4 z-50">
             <div className="flex justify-between items-start mb-2">
-                <h3 className="font-medium text-gray-900 dark:text-white">Install Campus Comfort App</h3>
+                <h3 className="font-medium text-gray-900 dark:text-white">Install Tonys Estate App</h3>
                 <Button
                     variant="ghost"
                     size="sm"

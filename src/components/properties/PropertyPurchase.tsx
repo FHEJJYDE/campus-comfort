@@ -251,7 +251,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
                 </div>
               </div>
               <div className="mt-4">
-                <p>After sending the equivalent of ₦{formatPriceWithCommas(propertyPrice)}, please email the transaction hash to payments@campuscomfort.com with reference: PROP-{propertyId}</p>
+                <p>After sending the equivalent of ₦{formatPriceWithCommas(propertyPrice)}, please email the transaction hash to payments@tonysestate.com with reference: PROP-{propertyId}</p>
               </div>
             </div>
           </div>
@@ -319,7 +319,7 @@ const PropertyPurchase = ({ propertyId, propertyTitle, propertyPrice }: Property
               </div>
             </div>
             <div className="text-sm mt-4">
-              <p>After making your deposit, please email the deposit slip to deposits@campuscomfort.com or upload it through your dashboard.</p>
+              <p>After making your deposit, please email the deposit slip to deposits@tonysestate.com or upload it through your dashboard.</p>
             </div>
           </div>
         );

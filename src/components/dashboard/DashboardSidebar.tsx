@@ -117,11 +117,9 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
       <SidebarContent className="bg-card">
         <div className="p-4 border-b border-border/50">
           <NavLink to="/" className="flex items-center gap-3 group">
-            <img
-              src="/campus-comfort-logo.png"
-              alt="Campus Comfort"
-              className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
-            />
+            <h2 className="text-xl font-bold text-foreground transition-all duration-300 group-hover:scale-105">
+              Tonys Estate
+            </h2>
             <div className="overflow-hidden">
               <p className="text-xs text-muted-foreground capitalize">{userRole} Portal</p>
             </div>

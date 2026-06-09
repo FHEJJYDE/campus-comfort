@@ -63,7 +63,7 @@ const ForgotPassword = () => {
   return (
     <>
       <Helmet>
-        <title>Forgot Password | Campus Comfort</title>
+        <title>Forgot Password | Tonys Estate</title>
       </Helmet>
 
       <div className="container flex items-center justify-center min-h-screen py-10">
@@ -74,7 +74,7 @@ const ForgotPassword = () => {
                 <span className="text-white dark:text-realty-900 font-bold">GD</span>
               </div>
               <span className="text-xl font-heading font-semibold text-realty-900 dark:text-white">
-                Campus Comfort
+                Tonys Estate
               </span>
             </Link>
             <CardTitle className="text-2xl">Reset your password</CardTitle>

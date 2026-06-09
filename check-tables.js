@@ -1,8 +1,8 @@
 // Check which tables exist in Supabase
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = 'https://djxfakdrijiadzmkbkub.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqeGZha2RyaWppYWR6bWtia3ViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIyODEwNzEsImV4cCI6MjA4Nzg1NzA3MX0.jMt9z3xFwz93IlstDB_Y_JiThyNtsq2bmTxM8SvJZmQ';
+const SUPABASE_URL = 'https://gvbztpfyajtdatnmmjtx.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2Ynp0cGZ5YWp0ZGF0bm1tanR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEwMTUzNjEsImV4cCI6MjA5NjU5MTM2MX0.TjUZoX6rCMFcC3P90TiWBZyhFu5IsR-DbPIGOfyY9xo';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
