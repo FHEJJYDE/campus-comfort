@@ -121,16 +121,16 @@ const Index = () => {
       <HeroSearch />
 
       {/* Move Featured property listings to this position */}
-      <section className="py-20 md:py-24 bg-background">
+      <section className="py-14 md:py-18 lg:py-20 bg-background">
         <div className="container-custom">
-          <div className="text-center mb-12 animate-fade-up">
+          <div className="text-center mb-10 md:mb-12 animate-fade-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
               Featured <span className="text-accent relative inline-block">
                 <span className="relative z-10">Properties</span>
                 <span className="absolute bottom-0 left-0 w-full h-3 bg-accent/20 -rotate-1"></span>
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
               Discover our handpicked selection of premium properties across Nigeria.
             </p>
           </div>
@@ -139,7 +139,7 @@ const Index = () => {
       </section>
 
       {/* Featured Locations */}
-      <section className="py-20 md:py-24 bg-muted/30">
+      <section className="py-14 md:py-18 lg:py-20 bg-muted/30">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
@@ -223,16 +223,16 @@ const Index = () => {
       {/* Remove the duplicate Featured property listings section that was here */}
 
       {/* Property types */}
-      <section className="py-20 md:py-24 bg-background">
+      <section className="py-14 md:py-18 lg:py-20 bg-background">
         <div className="container-custom">
-          <div className="text-center mb-12 animate-fade-up">
+          <div className="text-center mb-10 md:mb-12 animate-fade-up">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
               Browse by <span className="text-accent relative inline-block">
                 <span className="relative z-10">Property Type</span>
                 <span className="absolute bottom-0 left-0 w-full h-3 bg-accent/20 -rotate-1"></span>
               </span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
               Find the perfect property that fits your specific needs and preferences.
             </p>
           </div>
@@ -241,16 +241,16 @@ const Index = () => {
       </section>
 
       {/* Testimonials - Modern Clean Design */}
-      <section className="py-20 md:py-28 bg-muted/20">
+      <section className="py-14 md:py-18 lg:py-20 bg-muted/20">
         <div className="container-custom">
-          <div className="text-center mb-16 animate-fade-up">
-            <div className="inline-block mb-4">
-              <span className="text-sm font-semibold text-accent uppercase tracking-wider">Testimonials</span>
+          <div className="text-center mb-12 md:mb-14 animate-fade-up">
+            <div className="inline-block mb-3">
+              <span className="text-xs font-bold text-accent uppercase tracking-wider">Testimonials</span>
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground mb-4">
               What Our <span className="text-accent">Students</span> Say
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base md:text-lg">
               Real experiences from students who found their perfect home with Campus Comfort
             </p>
           </div>
@@ -259,7 +259,7 @@ const Index = () => {
       </section>
 
       {/* Call to Action - Modern Clean Design */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
+      <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90"></div>
 
