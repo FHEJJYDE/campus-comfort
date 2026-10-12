@@ -11,12 +11,21 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  optimizeDeps: {
+    esbuildOptions: {
+      target: "esnext",
+    },
+  },
+  esbuild: {
+    target: "esnext",
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
+    target: "esnext",
     // Optimize build for better performance
     rollupOptions: {
       output: {
