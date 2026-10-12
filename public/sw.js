@@ -1,68 +1,75 @@
-// Service Worker for caching and performance optimization
-const CACHE_NAME = 'campus-comfort-v1';
+// Service Worker for Campus Comfort PWA
+const CACHE_NAME = 'campus-comfort-v2';
 const urlsToCache = [
     '/',
     '/index.html',
     '/manifest.json',
     '/pwa-icons/android-chrome-192x192.png',
     '/pwa-icons/android-chrome-512x512.png',
-    '/pwa-icons/apple-touch-icon.png',
-    '/static/css/main.css',
-    '/static/js/main.js',
+    '/pwa-icons/apple-touch-icon.png'
 ];
 
-// Install event - cache static assets
+// Install event - cache static shell and immediately take over
 self.addEventListener('install', (event) => {
+    self.skipWaiting();
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
+        caches.open(CACHE_NAME).then((cache) => {
+            return cache.addAll(urlsToCache);
+        })
     );
 });
 
-// Fetch event - serve cached content when offline
-self.addEventListener('fetch', (event) => {
-    // Skip caching for external requests
-    if (!event.request.url.startsWith(self.location.origin)) {
-        return;
-    }
-
-    event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                // Return cached version or fetch from network
-                return response || fetch(event.request).then((response) => {
-                    // Cache important assets
-                    if (response.status === 200 &&
-                        (event.request.destination === 'document' ||
-                            event.request.destination === 'script' ||
-                            event.request.destination === 'style')) {
-                        const responseToCache = response.clone();
-                        caches.open(CACHE_NAME)
-                            .then((cache) => {
-                                cache.put(event.request, responseToCache);
-                            });
-                    }
-                    return response;
-                });
-            })
-    );
-});
-
-// Activate event - clean up old caches
+// Activate event - aggressively delete old caches (e.g. campus-comfort-v1) and claim clients
 self.addEventListener('activate', (event) => {
-    const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
-                    if (cacheWhitelist.indexOf(cacheName) === -1) {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log('Deleting obsolete cache:', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
             );
+        }).then(() => self.clients.claim())
+    );
+});
+
+// Fetch event
+self.addEventListener('fetch', (event) => {
+    if (!event.request.url.startsWith(self.location.origin)) {
+        return;
+    }
+
+    // Navigation / Document requests: NETWORK-FIRST so live updates are never blocked by stale cache
+    if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+        event.respondWith(
+            fetch(event.request)
+                .then((response) => {
+                    if (response && response.status === 200) {
+                        const copy = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+                    }
+                    return response;
+                })
+                .catch(() => caches.match(event.request) || caches.match('/index.html'))
+        );
+        return;
+    }
+
+    // Static assets: Cache-First with Network fallback
+    event.respondWith(
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+            return fetch(event.request).then((networkResponse) => {
+                if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+                    const copy = networkResponse.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+                }
+                return networkResponse;
+            });
         })
     );
 });
@@ -90,7 +97,6 @@ self.addEventListener('push', (event) => {
 // Handle notification clicks
 self.addEventListener('notificationclick', (event) => {
     event.notification.close();
-
     event.waitUntil(
         clients.openWindow(event.notification.data.url)
     );

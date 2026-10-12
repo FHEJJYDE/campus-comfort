@@ -7,10 +7,15 @@ export const registerServiceWorker = () => {
             navigator.serviceWorker.register('/sw.js')
                 .then((registration) => {
                     console.log('SW registered: ', registration);
+                    registration.update();
                 })
                 .catch((registrationError) => {
                     console.log('SW registration failed: ', registrationError);
                 });
+        });
+
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            console.log('New Service Worker activated, refreshing content...');
         });
     }
 };
