@@ -203,8 +203,8 @@ export function StudentKYCForm({ existingSubmission, onSubmitSuccess }: StudentK
 
         // Student Info
         student_status: "",
-        institution_name: "",
-        institution_state: "",
+        institution_name: "AKWA IBOM STATE UNIVERSITY",
+        institution_state: "Akwa Ibom",
         student_id_number: "",
         matriculation_number: "",
         admission_year: "",
@@ -554,8 +554,8 @@ export function StudentKYCForm({ existingSubmission, onSubmitSuccess }: StudentK
                     state_of_origin: "",
                     lga_of_origin: "",
                     student_status: "",
-                    institution_name: "",
-                    institution_state: "",
+                    institution_name: "AKWA IBOM STATE UNIVERSITY",
+                    institution_state: "Akwa Ibom",
                     student_id_number: "",
                     matriculation_number: "",
                     admission_year: "",
@@ -826,7 +826,7 @@ export function StudentKYCForm({ existingSubmission, onSubmitSuccess }: StudentK
                                         id="institution_name"
                                         value={formData.institution_name}
                                         onChange={(e) => handleInputChange('institution_name', e.target.value)}
-                                        placeholder="e.g., University of Lagos"
+                                        placeholder="e.g., AKWA IBOM STATE UNIVERSITY"
                                         required
                                     />
                                 </div>

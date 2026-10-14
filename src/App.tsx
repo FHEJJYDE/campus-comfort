@@ -21,6 +21,7 @@ const PWAInstallPrompt = lazy(() => import("./components/PWAInstallPrompt"));
 // Dashboard Pages
 const AdminDashboard = lazy(() => import("./pages/dashboard/AdminDashboard").then(module => ({ default: module.AdminDashboard })));
 const UserDashboard = lazy(() => import("./pages/dashboard/UserDashboard").then(module => ({ default: module.UserDashboard })));
+const AgentDashboard = lazy(() => import("./pages/dashboard/AgentDashboard").then(module => ({ default: module.AgentDashboard })));
 
 // Admin Pages
 const AdminSettings = lazy(() => import("./pages/admin/AdminSettings"));
@@ -36,6 +37,8 @@ const Login = lazy(() => import("./pages/Login"));
 const UserLogin = lazy(() => import("./pages/auth/UserLogin"));
 const UserSignup = lazy(() => import("./pages/auth/UserSignup"));
 const AdminLogin = lazy(() => import("./pages/auth/AdminLogin"));
+const AgentLogin = lazy(() => import("./pages/auth/AgentLogin"));
+const BecomeAnAgent = lazy(() => import("./pages/auth/BecomeAnAgent"));
 const ForgotPassword = lazy(() => import("./pages/ForgotPassword"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 
@@ -89,7 +92,9 @@ const App = () => {
                       <Route path="/login" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><Login /></RouteWrapper>} />
                       <Route path="/user-login" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><UserLogin /></RouteWrapper>} />
                       <Route path="/user-signup" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><UserSignup /></RouteWrapper>} />
+                      <Route path="/signup" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><UserSignup /></RouteWrapper>} />
                       <Route path="/admin-login" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><AdminLogin /></RouteWrapper>} />
+                      <Route path="/agent-login" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><AgentLogin /></RouteWrapper>} />
                       <Route path="/forgot-password" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><ForgotPassword /></RouteWrapper>} />
                       <Route path="/reset-password" element={<RouteWrapper includeAuthNavigation={true} includeFooter={false}><ResetPassword /></RouteWrapper>} />
 
@@ -100,6 +105,16 @@ const App = () => {
                           <RouteWrapper includeNavigation={false} includeFooter={false}>
                             <RequireAuth requiredUserType="admin">
                               <AdminDashboard />
+                            </RequireAuth>
+                          </RouteWrapper>
+                        }
+                      />
+                      <Route
+                        path="/agent-dashboard/*"
+                        element={
+                          <RouteWrapper includeNavigation={false} includeFooter={false}>
+                            <RequireAuth requiredUserType="agent">
+                              <AgentDashboard />
                             </RequireAuth>
                           </RouteWrapper>
                         }
@@ -127,6 +142,16 @@ const App = () => {
                         }
                       />
                       <Route
+                        path="/dashboard/agent/*"
+                        element={
+                          <RouteWrapper includeNavigation={false} includeFooter={false}>
+                            <RequireAuth requiredUserType="agent">
+                              <AgentDashboard />
+                            </RequireAuth>
+                          </RouteWrapper>
+                        }
+                      />
+                      <Route
                         path="/dashboard/user/*"
                         element={
                           <RouteWrapper includeNavigation={false} includeFooter={false}>
@@ -139,10 +164,13 @@ const App = () => {
 
                       {/* Preview routes for dashboards (no authentication required */}
                       <Route path="/preview/dashboard/admin/*" element={<RouteWrapper includeNavigation={false} includeFooter={false}><AdminDashboard /></RouteWrapper>} />
+                      <Route path="/preview/dashboard/agent/*" element={<RouteWrapper includeNavigation={false} includeFooter={false}><AgentDashboard /></RouteWrapper>} />
                       <Route path="/preview/dashboard/user/*" element={<RouteWrapper includeNavigation={false} includeFooter={false}><UserDashboard /></RouteWrapper>} />
 
                       {/* Public routes with header/footer */}
                       <Route path="/" element={<RouteWrapper><Index /></RouteWrapper>} />
+                      <Route path="/become-an-agent" element={<RouteWrapper><BecomeAnAgent /></RouteWrapper>} />
+                      <Route path="/agent-registration" element={<RouteWrapper><BecomeAnAgent /></RouteWrapper>} />
                       <Route path="/properties" element={<RouteWrapper><PropertyListings /></RouteWrapper>} />
                       <Route path="/properties/:id" element={<RouteWrapper><PropertyDetails /></RouteWrapper>} />
                       <Route path="/list-property" element={<RouteWrapper><ListProperty /></RouteWrapper>} />

@@ -79,6 +79,7 @@ export const useNavItems = (userType: "admin" | "agent" | "user"): NavItem[] => 
           icon: Users,
           subItems: [
             { title: "Users", path: "/dashboard/admin/users" },
+            { title: "Agent Applications", path: "/dashboard/admin/agents" },
           ]
         },
         {
@@ -117,27 +118,15 @@ export const useNavItems = (userType: "admin" | "agent" | "user"): NavItem[] => 
       ];
     }
 
-    // Since we're removing agents, redirect agent users to user dashboard
     if (userType === "agent") {
       return [
-        ...commonItems,
-        { title: "Favorites", path: "/dashboard/user/favorites", icon: Heart },
-        { title: "Messages", path: "/dashboard/user/messages", icon: MessageSquare },
-        {
-          title: "Properties",
-          path: "/dashboard/user/properties",
-          icon: Building,
-        },
-        {
-          title: "Property Tools",
-          icon: SearchCheck,
-          subItems: [
-            { title: "Search Management", path: "/dashboard/user/searches" },
-            { title: "Property Alerts", path: "/dashboard/user/property-alerts" },
-            { title: "Viewing History", path: "/dashboard/user/viewing-history" },
-          ]
-        },
-        { title: "Purchases", path: "/dashboard/user/purchases", icon: ShoppingBag },
+        { title: "Dashboard", path: "/dashboard/agent", icon: Home },
+        { title: "Daily Reports", path: "/dashboard/agent/daily-reports", icon: FileText },
+        { title: "My Clients", path: "/dashboard/agent/clients", icon: Users },
+        { title: "Properties", path: "/dashboard/agent/properties", icon: Building },
+        { title: "Create Listing", path: "/dashboard/agent/create-listing", icon: Building2 },
+        { title: "Code of Conduct", path: "/dashboard/agent/code-of-conduct", icon: Scale },
+        { title: "Profile", path: "/dashboard/agent/profile", icon: User },
       ];
     }
 

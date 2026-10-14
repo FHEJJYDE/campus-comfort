@@ -15,7 +15,7 @@ export function useAuth() {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<import('@supabase/supabase-js').Session | null>(null);
   const [user, setUser] = useState<import('@supabase/supabase-js').User | null>(null);
-  const [userType, setUserType] = useState<"admin" | "user" | null>(null);
+  const [userType, setUserType] = useState<"admin" | "agent" | "user" | null>(null);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -151,9 +151,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (data) {
         // Validate the user_type value
-        // Remove "agent" from valid user types since we're removing agents
-        const validUserTypes = ["admin", "user"];
-        const userTypeValue = data.user_type as "admin" | "user";
+        const validUserTypes = ["admin", "agent", "user"];
+        const userTypeValue = data.user_type as "admin" | "agent" | "user";
 
         if (validUserTypes.includes(userTypeValue)) {
           setUserType(userTypeValue);
@@ -200,7 +199,7 @@ export function RequireAuth({
   requiredUserType
 }: {
   children: JSX.Element;
-  requiredUserType?: "admin" | "user"; // Remove "agent" from requiredUserType
+  requiredUserType?: "admin" | "agent" | "user";
 }) {
   const context = useContext(AuthContext);
   console.log("RequireAuth context:", context);
@@ -232,6 +231,8 @@ export function RequireAuth({
     // Redirect to the appropriate dashboard if logged in but wrong type
     if (userType === "admin") {
       return <Navigate to="/dashboard/admin" replace />;
+    } else if (userType === "agent") {
+      return <Navigate to="/dashboard/agent" replace />;
     } else if (userType === "user") {
       return <Navigate to="/dashboard/user" replace />;
     }

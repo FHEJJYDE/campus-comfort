@@ -33,6 +33,7 @@ import {
   CalendarCheck,
   UserPlus,
   Clock,
+  Plus,
 } from "lucide-react";
 
 interface DashboardSidebarProps {
@@ -64,6 +65,7 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
       case "admin":
         return [
           ...commonItems,
+          { title: "Agent Applications", url: `/dashboard/admin/agents`, icon: UserCheck },
           { title: "Analytics", url: `/dashboard/admin/analytics`, icon: BarChart3 },
           { title: "Users", url: `/dashboard/admin/users`, icon: Users },
           { title: "Student KYC", url: `/dashboard/admin/student-kyc`, icon: UserCheck },
@@ -74,20 +76,18 @@ export function DashboardSidebar({ userRole }: DashboardSidebarProps) {
           { title: "Payments", url: `/dashboard/admin/payments`, icon: CreditCard },
           { title: "Notifications", url: `/dashboard/admin/notifications`, icon: Bell },
           { title: "Settings", url: `/dashboard/admin/settings`, icon: Settings },
-          { title: "Profile", url: `/dashboard/admin/profile`, icon: UserPlus }, // Added Profile link
+          { title: "Profile", url: `/dashboard/admin/profile`, icon: UserPlus },
         ];
 
       case "agent":
         return [
-          ...commonItems,
-          { title: "My Listings", url: `/dashboard/user/listings`, icon: Building2 },
-          { title: "Saved Properties", url: `/dashboard/user/saved`, icon: Heart },
-          { title: "Search Management", url: `/dashboard/user/searches`, icon: Search },
-          { title: "Appointments", url: `/dashboard/user/appointments`, icon: Calendar },
-          { title: "Messages", url: `/dashboard/user/messages`, icon: MessageSquare },
-          { title: "Notifications", url: `/dashboard/user/notifications`, icon: Bell },
-          { title: "Payments", url: `/dashboard/user/payments`, icon: CreditCard },
-          { title: "Profile", url: `/dashboard/user/profile`, icon: Settings },
+          { title: "Dashboard", url: `/dashboard/agent`, icon: Home },
+          { title: "Daily Reports", url: `/dashboard/agent/daily-reports`, icon: FileText },
+          { title: "My Clients", url: `/dashboard/agent/clients`, icon: Users },
+          { title: "Properties", url: `/dashboard/agent/properties`, icon: Building2 },
+          { title: "Create Listing", url: `/dashboard/agent/create-listing`, icon: Plus },
+          { title: "Code of Conduct", url: `/dashboard/agent/code-of-conduct`, icon: Shield },
+          { title: "Profile", url: `/dashboard/agent/profile`, icon: UserPlus },
         ];
 
       case "user":

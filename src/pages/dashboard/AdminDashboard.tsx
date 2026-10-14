@@ -34,6 +34,7 @@ import PaymentManager from "@/components/payments/PaymentManager";
 import NotificationCenter from "@/components/notifications/NotificationCenter";
 import AdminProfile from "../admin/AdminProfile";
 import { LocationManagement } from "@/components/admin/LocationManagement";
+import AdminAgentManagement from "@/components/admin/AdminAgentManagement";
 
 interface Activity {
   id: string;
@@ -249,7 +250,7 @@ export function AdminDashboard() {
         <Route index element={<AdminDashboardHome />} />
         <Route path="analytics" element={<AdminAnalytics />} />
         <Route path="users" element={<AdminUsers />} />
-        {/* Remove the agents route */}
+        <Route path="agents" element={<AdminAgentManagement />} />
         <Route path="properties" element={<AdminProperties />} />
         <Route path="properties/create" element={<AdminCreateListing />} />
         <Route path="properties/edit/:id" element={<AdminEditListing />} />

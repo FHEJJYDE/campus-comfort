@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
@@ -54,6 +54,12 @@ const Footer = () => {
               <li>
                 <Link to="/properties" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                   Browse Properties
+                </Link>
+              </li>
+              <li>
+                <Link to="/become-an-agent" className="text-accent font-medium hover:text-accent/90 transition-colors flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+                  Become an Agent
                 </Link>
               </li>
               <li>
@@ -138,6 +144,25 @@ const Footer = () => {
               </div>
             </form>
           </div>
+        </div>
+
+        {/* Agent Recruitment Highlight Card */}
+        <div className="mt-12 p-6 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/15 backdrop-blur-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="space-y-1 text-center md:text-left">
+            <h4 className="text-base font-semibold text-primary-foreground flex items-center justify-center md:justify-start gap-2">
+              <Sparkles className="h-4 w-4 text-accent" />
+              Become a Verified Campus Comfort Agent
+            </h4>
+            <p className="text-sm text-primary-foreground/80 max-w-xl">
+              Earn ₦10,000 commission per successful student client. Help university students find verified campus housing and manage your clients seamlessly.
+            </p>
+          </div>
+          <Link to="/become-an-agent">
+            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 shadow-md transition-all duration-200 hover:scale-105 flex items-center gap-2 whitespace-nowrap">
+              <span>Become an Agent</span>
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-xs text-primary-foreground/70">
